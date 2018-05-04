@@ -23,7 +23,7 @@ if(!isset($_SESSION["uid"])){
 	</head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">	
+		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
 					<span class="sr-only"> navigation toggle</span>
@@ -37,6 +37,7 @@ if(!isset($_SESSION["uid"])){
 			<ul class="nav navbar-nav">
 				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>   Inicio</a></li>
 				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>   Productos</a></li>
+				<li><a href="sellprofile.php"><span class="glyphicon glyphicon-modal-window"></span>Sell Product</a></li>
 				<li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search"></li>
 				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn">Buscar</button></li>
 			</ul>
@@ -75,7 +76,7 @@ if(!isset($_SESSION["uid"])){
 						<li><a href="logout.php" style="text-decoration:none; color:white;">Logout</a></li>
 					</ul>
 				</li>
-				
+
 			</ul>
 		</div>
 	</div>
@@ -106,7 +107,7 @@ if(!isset($_SESSION["uid"])){
 					<li><a href="#">Categories</a></li>
 				</div> -->
 			</div>
-			<div class="col-md-8">	
+			<div class="col-md-8">
 				<div class="row">
 					<div class="col-md-12 col-xs-12" id="product_msg">
 					</div>
@@ -129,7 +130,7 @@ if(!isset($_SESSION["uid"])){
 							</div>
 						</div> -->
 					</div>
-					<div class="panel-footer">&copy; 2016</div>
+					<div class="panel-footer">&copy; 2018</div>
 				</div>
 			</div>
 			<div class="col-md-1"></div>
@@ -146,51 +147,3 @@ if(!isset($_SESSION["uid"])){
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

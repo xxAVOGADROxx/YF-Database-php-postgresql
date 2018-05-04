@@ -21,7 +21,7 @@ if(isset($_SESSION["uid"])){
 	<div class="loader"></div>
 </div>
 	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">	
+		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
 					<span class="sr-only">navigation</span>
@@ -41,7 +41,7 @@ if(isset($_SESSION["uid"])){
 		          <input type="text" class="form-control" placeholder="Buscar productos" id="search">
 		        </div>
 		        <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
-		     </form>			
+		     </form>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>  Ir al carrito  <span class="badge">0</span></a>
 					<div class="dropdown-menu" style="width:400px;">
@@ -92,7 +92,7 @@ if(isset($_SESSION["uid"])){
 			</ul>
 		</div>
 	</div>
-</div>	
+</div>
 	<p><br/></p>
 	<p><br/></p>
 	<p><br/></p>
@@ -150,51 +150,3 @@ if(isset($_SESSION["uid"])){
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
