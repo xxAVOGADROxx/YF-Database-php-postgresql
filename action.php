@@ -132,13 +132,13 @@ if(isset($_POST["get_seleted_Category"]) || isset($_POST["selectBrand"]) || isse
 								</div>
 								<div class='panel-body'>
 									<center>
-									<p style = color:#FFFFFF; >Descripci�n del Producto.</p>
+									<p style = color:#FFFFFF; >Descripción del Producto.</p>
 									</center>
 									<hr />
 									<p>$pro_desc</p>
 								</div>
 								<div class='panel-heading'>$  $pro_price
-									<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>A�adir</button>
+									<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>Añadir</button>
 								</div>
 							</div>
 				</div>
