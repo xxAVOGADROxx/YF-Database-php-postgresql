@@ -35,10 +35,10 @@ if(!isset($_SESSION["uid"])){
 			</div>
 		<div class="collapse navbar-collapse" id="collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>   Inicio</a></li>
-				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>   Productos</a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span> Productos</a></li>
 				<li><a href="sellprofile.php"><span class="glyphicon glyphicon-modal-window"></span>Sell Product</a></li>
-				<li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search"></li>
+				<li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search" placeholder="Buscar productos"></li>
 				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn">Buscar</button></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

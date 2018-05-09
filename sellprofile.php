@@ -31,15 +31,15 @@ if(!isset($_SESSION["uid"])){
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="#" class="navbar-brand">Khan Store</a>
+				<a href="#" class="navbar-brand">Yachay Market</a>
 			</div>
 		<div class="collapse navbar-collapse" id="collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
 				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>Buy Product</a></li>
 				<li><a href="sellprofile.php"><span class="glyphicon glyphicon-modal-window"></span>Sell Product</a></li>
-				<li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search"></li>
-				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn">Search</button></li>
+				<li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search" placeholder="Buscar productos"></li>
+				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn">Buscar</button></li>
 			</ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#" id="cart_container" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart<span class="badge">0</span></a>
@@ -73,7 +73,7 @@ if(!isset($_SESSION["uid"])){
             <li class="divider"></li>
             <li><a href="customer_order.php" style="text-decoration:none; color:blue;">Orders</a></li>
             <li class="divider"></li>
-            <li><a href="" style="text-decoration:none; color:blue;">Chnage Password</a></li>
+            <li><a href="" style="text-decoration:none; color:blue;">Change Password</a></li>
             <li class="divider"></li>
             <li><a href="logout.php" style="text-decoration:none; color:blue;">Logout</a></li>
           </ul>
@@ -108,7 +108,7 @@ if(!isset($_SESSION["uid"])){
 				<li><a href="#">Categories</a></li>
 				<li><a href="#">Categories</a></li>
 			</div> -->
-			<div id="get_brand_sellprofile">
+			<div id="get_prov_sellprofile">
 			</div>
 			<!--<div class="nav nav-pills nav-stacked">
 				<li class="active"><a href="#"><h4>Brand</h4></a></li>

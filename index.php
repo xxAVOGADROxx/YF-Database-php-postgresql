@@ -41,7 +41,7 @@ if(isset($_SESSION["uid"])){
 		          <input type="text" class="form-control" placeholder="Buscar productos" id="search">
 		        </div>
 		        <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
-		     </form>
+		 </form>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>  Ir al carrito  <span class="badge">0</span></a>
 					<div class="dropdown-menu" style="width:400px;">

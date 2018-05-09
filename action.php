@@ -365,8 +365,8 @@ if (isset($_POST["updateCartItem"])) {
 }
 
 // Desde aqui empieza la funcionalidad para vender producto JS
-//functions to the seller prfile
-if(isset($_POST["sellprofiles"])){
+//functions to the seller profile
+if(isset($_POST["sellprofile"])){
  	$id_session = (int)pg_escape_string($_SESSION["uid"]);
 	$category_query = "SELECT * FROM categories WHERE cat_id IN (SELECT product_cat FROM products WHERE user_id = '$id_session')";
 	$run_query = pg_query($con,$category_query) or die("Error de conexion.". pg_error());

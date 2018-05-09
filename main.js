@@ -331,7 +331,7 @@ $(document).ready(function(){
 			}
 		})
 	})
-})
+
 
 // Funciones Añadidas para venta de productos
 
@@ -339,7 +339,7 @@ function sellc(){
 	$.ajax({
 		url	:	"action.php",
 		method:	"POST",
-		data	:	{sellprofiles:1},
+		data	:	{sellprofile:1},
 		success	:	function(data){
 			$("#sellprofile").html(data);
 
@@ -351,9 +351,9 @@ function sell_product(){
 $.ajax({
 	url	:	"action.php",
 	method:	"POST",
-	data	:	{get_product_sellprofile:1},
+	data	:	{get_prov_sellprofile:1},
 	success	:	function(data){
-		$("#get_product_sellprofile").html(data);
+		$("#get_prov_sellprofile").html(data);
 	}
 })
 }
@@ -370,13 +370,12 @@ $("#add_product").on("submit",function(event){
 		success	:function(data){
 			if(data == "add_success"){
 				window.location.href = "sellprofile.php";
-			}else if(data == ""){
-				window.location.href = "cart.php";
 			}else{
 				$("#e_msg").html(data);
 				$(".overlay").hide();
 			}
 		}
 	})
+})
 })
 //----------------------------------------
