@@ -69,6 +69,11 @@ if(isset($_POST["getProduct"])){
 			$pro_price = $row['product_price'];
 			$pro_desc = $row['product_desc'];
 			$pro_image = $row['product_image'];
+			$pro_user_id = $row['user_id'];
+			$pro_stock = $row['stock'];
+			$user_query = "SELECT first_name ||' '|| last_name as full_name from user_info where $pro_user_id = user_id";
+			$run_user_query = pg_query($con,$user_query);
+			$result = pg_fetch_array($run_user_query );
 			echo "
 				<div class='col-md-4'>
 							<div class='panel panel-info'>
@@ -80,7 +85,8 @@ if(isset($_POST["getProduct"])){
 								</div>
 								<div class='panel-body'>
 									<center>
-         							<p style = color:#FFFFFF; >Descripción del Producto.</p>
+         							<p style = color:#FFFFFF; >$result[full_name] </p>
+											<p style = color:#FFFFFF; >Stock: 	$pro_stock </p>
 									</center>
 									<hr />
   									<p>$pro_desc</p>
