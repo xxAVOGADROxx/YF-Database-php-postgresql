@@ -35,13 +35,15 @@ if(isset($_SESSION["uid"])){
 			<ul class="nav navbar-nav">
 				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>   Inicio</a></li>
 				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>  Productos</a></li>
+				<li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search" placeholder="Buscar productos"></li>
+				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn">Buscar</button></li>
 			</ul>
-			<form class="navbar-form navbar-left">
+<!--		<form class="navbar-form navbar-left">
 		        <div class="form-group">
 		          <input type="text" class="form-control" placeholder="Buscar productos" id="search">
 		        </div>
 		        <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
-		 </form>
+		 </form>-->
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>  Ir al carrito  <span class="badge">0</span></a>
 					<div class="dropdown-menu" style="width:400px;">
