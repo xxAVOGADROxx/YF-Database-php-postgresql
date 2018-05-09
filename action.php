@@ -80,13 +80,13 @@ if(isset($_POST["getProduct"])){
 								</div>
 								<div class='panel-body'>
 									<center>
-         							<p style = color:#FFFFFF; >Descripci�n del Producto.</p>
+         							<p style = color:#FFFFFF; >Descripción del Producto.</p>
 									</center>
 									<hr />
   									<p>$pro_desc</p>
 								</div>
 								<div class='panel-heading'>$  $pro_price
-									<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>A�adir</button>
+									<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>Añadir</button>
 								</div>
 							</div>
 						</div>
@@ -387,6 +387,7 @@ if(isset($_POST["sellprofile"])){
 }
 //product
 if(isset($_POST["get_product_sellprofile"])){
+	$user_id = $_SESSION["uid"];
 	$limit = 9;
 	if(isset($_POST["setPage"])){
 		$pageno = $_POST["pageNumber"];
@@ -394,7 +395,7 @@ if(isset($_POST["get_product_sellprofile"])){
 	}else{
 		$start = 0;
 	}
-	$product_query = "SELECT * FROM products LIMIT $limit OFFSET $start";
+	$product_query = "SELECT * FROM products WHERE user_id = $user_id LIMIT $limit OFFSET $start";
 	$run_query = pg_query($con,$product_query);
 	if(pg_num_rows($run_query) > 0){
 		while($row = pg_fetch_array($run_query)){
@@ -403,19 +404,29 @@ if(isset($_POST["get_product_sellprofile"])){
 			$pro_brand = $row['product_prov'];
 			$pro_title = $row['product_title'];
 			$pro_price = $row['product_price'];
+			$pro_desc = $row['product_desc'];
 			$pro_image = $row['product_image'];
 			echo "
-				<div class='col-md-4'>
-							<div class='panel panel-info'>
-								<div class='panel-heading'>$pro_title</div>
-								<div class='panel-body'>
-									<img src='product_images/$pro_image' style='width:160px; height:250px;'/>
-								</div>
-								<div class='panel-heading'>$.$pro_price.00
-									<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>AddToCart</button>
-								</div>
+			<div class='col-md-4'>
+						<div class='panel panel-info'>
+							<div class='panel-heading'>$pro_title</div>
+							<div class='panel-body'>
+								<center>
+								<img src='product_images/$pro_image' style='width:160px; height:160px;'/>
+								</center>
+							</div>
+							<div class='panel-body'>
+								<center>
+										<p style = color:#FFFFFF; >Descripción del Producto.</p>
+								</center>
+								<hr />
+									<p>$pro_desc</p>
+							</div>
+							<div class='panel-heading'>$  $pro_price
+								<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>Añadir</button>
 							</div>
 						</div>
+					</div>
 			";
 		}
 	}

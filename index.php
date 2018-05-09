@@ -80,7 +80,7 @@ if(isset($_SESSION["uid"])){
 										<label for="email">Contraseña</label>
 										<input type="password" class="form-control" name="password" id="password" required/>
 										<p><br/></p>
-										<!-- <a href="#" style="color:white; list-style:none;">Forgotten Password</a> -->
+										<a href="customer_registration_home.php?register=1" style="color:white; list-style:none;">Crear cuenta</a>
 										<input type="submit" class="btn btn-success" style="float:right;">
 									</form>
 								</div>

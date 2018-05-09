@@ -7,7 +7,7 @@ if (isset($_GET["register"])) {
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Khan Store</title>
+		<title>Yachay Market</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css"/>
 		<script src="js/jquery2.js"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -47,7 +47,7 @@ if (isset($_GET["register"])) {
 					<div class="panel-heading">Formato de registro del Cliente</div>
 					<div class="panel-body">
 
-					<form id="signup_form" onsubmit="return false">
+					<form id="signup_form_home" onsubmit="return false">
 						<div class="row">
 							<div class="col-md-6">
 								<label for="f_name">Primer Nombre</label>

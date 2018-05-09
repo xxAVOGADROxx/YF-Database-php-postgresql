@@ -2,7 +2,7 @@ $(document).ready(function(){
 	cat();
 	brand();
 	product();
-	sellc(); //Metodos para enviar informacion del actual vendedor
+	sell_category(); //Metodos para enviar informacion del actual vendedor
 	sell_product();
 
 	//cat() is a funtion fetching category record from database whenever page is load
@@ -335,7 +335,7 @@ $(document).ready(function(){
 
 // Funciones Añadidas para venta de productos
 
-function sellc(){
+function sell_category(){//sell category
 	$.ajax({
 		url	:	"action.php",
 		method:	"POST",
@@ -347,13 +347,13 @@ function sellc(){
 	})
 }
 
-function sell_product(){
+function sell_product(){//sell product
 $.ajax({
 	url	:	"action.php",
 	method:	"POST",
-	data	:	{get_prov_sellprofile:1},
+	data	:	{get_product_sellprofile:1},
 	success	:	function(data){
-		$("#get_prov_sellprofile").html(data);
+		$("#get_product_sellprofile").html(data);
 	}
 })
 }
@@ -374,6 +374,25 @@ $("#add_product").on("submit",function(event){
 				$("#e_msg").html(data);
 				$(".overlay").hide();
 			}
+		}
+	})
+})
+//Get User Information in the homepage
+$("#signup_form_home").on("submit",function(event){
+	event.preventDefault();
+	$(".overlay").show();
+	$.ajax({
+		url : "register.php",
+		method : "POST",
+		data : $("#signup_form_home").serialize(),
+		success : function(data){
+			$(".overlay").hide();
+			if (data == "register_success") {
+				window.location.href = "profile.php";
+			}else{
+				$("#signup_msg").html(data);
+			}
+
 		}
 	})
 })
