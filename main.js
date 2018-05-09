@@ -3,6 +3,7 @@ $(document).ready(function(){
 	brand();
 	product();
 	sell_category(); //Metodos para enviar informacion del actual vendedor
+	sell_brand();
 	sell_product();
 
 	//cat() is a funtion fetching category record from database whenever page is load
@@ -346,6 +347,16 @@ function sell_category(){//sell category
 		}
 	})
 }
+function sell_brand(){
+	$.ajax({
+		url	:	"action.php",
+		method:	"POST",
+		data	:	{get_sell_brand:1},
+		success	:	function(data){
+			$("#get_sell_brand").html(data);
+		}
+	})
+}
 
 function sell_product(){//sell product
 $.ajax({
@@ -357,6 +368,73 @@ $.ajax({
 	}
 })
 }
+
+/*	when page is load successfully then there is a list of categories when user click on category we will get category id and
+	according to id we will show products
+*/
+$("body").delegate(".sell_category","click",function(event){
+	$("#get_product_sellprofile").html("<h3>Loading...</h3>");
+	event.preventDefault();
+	var cid = $(this).attr('cid');
+
+		$.ajax({
+		url		:	"action.php",
+		method	:	"POST",
+		data	:	{get_seleted_Category_sellprofile:1,cat_id:cid},
+		success	:	function(data){
+			$("#get_product_sellprofile").html(data);
+			if($("body").width() < 480){
+				$("body").scrollTop(683);
+			}
+		}
+	})
+
+})
+
+/*	when page is load successfully then there is a list of brands when user click on brand we will get brand id and
+	according to brand id we will show products
+*/
+$("body").delegate(".selectBrand_sellprofile","click",function(event){
+	event.preventDefault();
+	$("#get_product_sellprofile").html("<h3>Loading...</h3>");
+	var bid = $(this).attr('bid');
+
+		$.ajax({
+		url		:	"action.php",
+		method	:	"POST",
+		data	:	{selectBrand_sellprofile:1,brand_id:bid},
+		success	:	function(data){
+			$("#get_product_sellprofile").html(data);
+			if($("body").width() < 480){
+				$("body").scrollTop(683);
+			}
+		}
+	})
+
+})
+/*
+	At the top of page there is a search box with search button when user put name of product then we will take the user
+	given string and with the help of sql query we will match user given string to our database keywords column then matched product
+	we will show
+*/
+$("#search_btn_sellprofile").click(function(){
+	$("#get_product_sellprofile").html("<h3>Loading...</h3>");
+	var keyword = $("#search").val();
+	if(keyword != ""){
+		$.ajax({
+		url		:	"action.php",
+		method	:	"POST",
+		data	:	{search_sellprofile:1,keyword:keyword},
+		success	:	function(data){
+			$("#get_product_sellprofile").html(data);
+			if($("body").width() < 480){
+				$("body").scrollTop(683);
+			}
+		}
+	})
+	}
+})
+//end
 
 
 //add_product_function begin
