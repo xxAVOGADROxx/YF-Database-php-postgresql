@@ -59,9 +59,10 @@ create table products (
 	product_prov integer,
 	product_title varchar not null,
 	product_price numeric not null,
-	product_desc varchar not null,
+	product_desc varchar(255) not null,
 	product_image varchar not null,
 	product_keywords varchar not null
+	--product_img bytea
 );
 
 insert into products (user_id, stock, limit_date, register_date, product_cat, product_prov, product_title, product_price, product_desc, product_image, product_keywords)values
@@ -88,9 +89,20 @@ create table user_info (
 	password varchar(300) not null,
 	mobile varchar (10) not null,
 	address1 varchar not null,
-	address2 varchar not NULL
+	address2 varchar not NULL,
+	organization int,
 );
 
 insert into user_info (first_name, last_name, email, password, mobile, address1, address2)values
 	( 'Henry', 'Caraguay', 'henry.caraguay@gmail.com', '1234567890loja', '0986100449', 'Loja', 'La Banda'),
 	( 'Jose', 'Serquive', 'jose.seraquive@yahoo.com', '1234567890quito', '0987654321', 'Quito', 'El Valle');
+--FUNCIONES
+create or replace function isProveedor(idsession int) returns int as
+$$
+declare
+	id_prov int;
+begin
+	select organization into id_prov from user_info where idsession = user_id;
+    return id_prov;
+end;
+$$ language plpgsql;

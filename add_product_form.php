@@ -12,7 +12,6 @@ if (isset($_POST["login_user_with_product"])) {
 	$json_e = json_encode($product_list);
 	//here we are creating cookie and name of cookie is product_list
 	setcookie("product_list",$json_e,strtotime("+1 day"),"/","","",TRUE);
-
 }
 ?>
 <!DOCTYPE html>
@@ -36,8 +35,8 @@ if (isset($_POST["login_user_with_product"])) {
 				<a href="#" class="navbar-brand">Yachay Market</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>Product</a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span> Productos</a></li>
 			</ul>
 		</div>
 	</div>
@@ -56,30 +55,48 @@ if (isset($_POST["login_user_with_product"])) {
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
 				<div class="panel panel-primary">
-					<div class="panel-heading">Add Product Form</div>
+					<div class="panel-heading">Forma para añadir un nuevo producto</div>
 					<div class="panel-body">
 						<!--User Login Form-->
 						<form onsubmit="return false" id="add_product">
-							<label for="title">Title</label>
+							<label for="title">Nombre del Producto</label>
 							<input type="title" class="form-control" name="title_prod" id="title_prod" required/>
 
-							<label for="description">Description</label>
-              <input type="description" class="form-control" name="description_prod" id="description_prod" required/>
+							<label for="">Categoria</label>
+							<select type="categoria" class="form-control" name="catego_prod" id="catego_prod" placeholder= "Seleccione una opción" required/>
+									<option value="8"> Otros</option>
+									<option value="1">Desayunos</option>
+									<option value="2">Almuerzos</option>
+									<option value="3">Meriendas</option>
+									<option value="4">Postres</option>
+									<option value="5">Bebidas</option>
+									<option value="6">Entradas</option>
+									<option value="7">Ensaladas</option>
+							</select>
 
-              <label for="keywords">keywords</label>
+							<label for="description">Descripción</label>
+              <input type="description" class="form-control" name="description_prod" id="description_prod" placeholder= "Máximo 255 carácteres" required/>
+
+              <label for="keywords">Palabras Clave</label>
 							<input type="keywords" class="form-control" name="keywords_prod" id="keywords_prod" required/>
 
               <label for="stock">Stock</label>
-							<input type="stock" class="form-control" name="stock_prod" id="stock_prod" required/>
+							<input type="stock" class="form-control" name="stock_prod" id="stock_prod" placeholder= "Items disponibles" required/>
 
-              <label for="price">Price</label>
-							<input type="price" class="form-control" name="price_prod" id="price_prod" required/>
+              <label for="price">Precio</label>
+							<input type="price" class="form-control" name="price_prod" id="price_prod" placeholder= "ej. 10.00"  required/>
 
-              <label for="limitdate">Limit Date</label>
-							<input type="limitdate" class="form-control" name="limit_date_prod" id="limit_date_prod" required/>
+              <label for="limitdate">Fecha límite de publicación</label>
+							<input type="limitdate" class="form-control" name="limit_date_prod" id="limit_date_prod" placeholder= "año-mes-día" required/>
 
               <label for="imageprod">Image</label>
-							<input type="imageprod" class="form-control" name="image_prod" id="image_prod" required/>
+							<input type="imageprod" class="form-control" name="image_prod" id="image_prod" placeholder= "" required/>
+
+							<form action="upload.php" method="post" enctype="multipart/form-data">
+    							Select image to upload:
+    							<input type="file" name="fileToUpload" id="fileToUpload">
+    							<input type="submit" value="Upload Image" name="submit">
+							</form>
 
               <p><br/></p>
               <a href="sellprofile.php" class="btn btn-success" style="float:left">Cancel</a><input type="submit" class="btn btn-success" style="float:right;" Value="Add">
