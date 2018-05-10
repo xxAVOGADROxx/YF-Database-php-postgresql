@@ -9,7 +9,7 @@ if(!isset($_SESSION["uid"])){
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Khan Store</title>
+		<title>Yachay Food</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css"/>
 		<script src="js/jquery2.js"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -22,11 +22,11 @@ if(!isset($_SESSION["uid"])){
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">	
 			<div class="navbar-header">
-				<a href="#" class="navbar-brand">Khan Store</a>
+				<a href="#" class="navbar-brand"> Yachay Food </a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>Product</a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Inicio </a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>Productos </a></li>
 			</ul>
 		</div>
 	</div>
@@ -41,7 +41,7 @@ if(!isset($_SESSION["uid"])){
 				<div class="panel panel-default">
 					<div class="panel-heading"></div>
 					<div class="panel-body">
-						<h1>Customer Order details</h1>
+						<h4>Detalle de Orden del cliente</h4>
 						<hr/>
 						<?php
 							include_once("db.php");
@@ -53,14 +53,14 @@ if(!isset($_SESSION["uid"])){
 									?>
 										<div class="row">
 											<div class="col-md-6">
-												<img style="float:right;" src="product_images/<?php echo $row['product_image']; ?>" class="img-responsive img-thumbnail"/>
+												<img style="float:right;" src="product_images/<?php echo $row['product_image']; ?>" class="img-responsive img-thumbnail" width="300" height="200"/>
 											</div>
 											<div class="col-md-6">
 												<table>
-													<tr><td>Product Name</td><td><b><?php echo $row["product_title"]; ?></b> </td></tr>
-													<tr><td>Product Price</td><td><b><?php echo "$ ".$row["product_price"]; ?></b></td></tr>
-													<tr><td>Quantity</td><td><b><?php echo $row["qty"]; ?></b></td></tr>
-													<tr><td>Transaction Id</td><td><b><?php echo $row["trx_id"]; ?></b></td></tr>
+													<tr><td>Nombre del Producto: </td><td><b><?php echo $row["product_title"]; ?></b> </td></tr>
+													<tr><td>Precio Producto: </td><td><b><?php echo "$ ".$row["product_price"]; ?></b></td></tr>
+													<tr><td>Cantidad</td><td><b><?php echo $row["qty"]; ?></b></td></tr>
+													<tr><td>ID de transacción:</td><td><b><?php echo $row["trx_id"]; ?></b></td></tr>
 												</table>
 											</div>
 										</div>

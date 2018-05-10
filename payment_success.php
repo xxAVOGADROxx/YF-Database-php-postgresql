@@ -3,37 +3,27 @@
 session_start();
 if(!isset($_SESSION["uid"])){
 	header("location:index.php");
-}
-
-if (isset($_GET["st"])) {
-
-	# code...
-	$trx_id = $_GET["tx"];
-		$p_st = $_GET["st"];
-		$amt = $_GET["amt"];
-		$cc = $_GET["cc"];
-		$cm_user_id = $_GET["cm"];
-		$c_amt = $_COOKIE["ta"];
-	if ($p_st == "Completed") {
-
-		
-
+}else{
+	if (isset($_SESSION["uid"])) {
 		include_once("db.php");
-		$sql = "SELECT p_id,qty FROM cart WHERE user_id = '$cm_user_id'";
+		$user_id = $_SESSION["uid"];
+		$trx_id = 'Yachafood'.$user_id.'_'.rand(1,999);
+		$sql = "SELECT p_id,qty FROM cart WHERE user_id = $user_id";
 		$query = pg_query($con,$sql);
 		if (pg_num_rows($query) > 0) {
 			# code...
 			while ($row=pg_fetch_array($query)) {
 			$product_id[] = $row["p_id"];
 			$qty[] = $row["qty"];
+			$p_st = 'Completed';
 			}
 
 			for ($i=0; $i < count($product_id); $i++) { 
-				$sql = "INSERT INTO orders (user_id,product_id,qty,trx_id,p_status) VALUES ('$cm_user_id','".$product_id[$i]."','".$qty[$i]."','$trx_id','$p_st')";
+				$sql = "INSERT INTO orders (user_id,product_id,qty,trx_id,p_status) VALUES ('$user_id','".$product_id[$i]."','".$qty[$i]."','$trx_id','$p_st')";
 				pg_query($con,$sql);
 			}
 
-			$sql = "DELETE FROM cart WHERE user_id = '$cm_user_id'";
+			$sql = "DELETE FROM cart WHERE user_id = '$user_id'";
 			if (pg_query($con,$sql)) {
 				?>
 					<!DOCTYPE html>
@@ -53,11 +43,11 @@ if (isset($_GET["st"])) {
 						<div class="navbar navbar-inverse navbar-fixed-top">
 							<div class="container-fluid">	
 								<div class="navbar-header">
-									<a href="#" class="navbar-brand">Khan Store</a>
+									<a href="#" class="navbar-brand"Yachay Food</a>
 								</div>
 								<ul class="nav navbar-nav">
-									<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-									<li><a href="profile.php"><span class="glyphicon glyphicon-modal-window"></span>Product</a></li>
+									<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+									<li><a href="profile.php"><span class="glyphicon glyphicon-modal-window"></span> Productos</a></li>
 								</ul>
 							</div>
 						</div>
@@ -72,12 +62,13 @@ if (isset($_GET["st"])) {
 									<div class="panel panel-default">
 										<div class="panel-heading"></div>
 										<div class="panel-body">
-											<h1>Thankyou </h1>
+											<h3>Gracias por tu compra!</h3>
 											<hr/>
-											<p>Hello <?php echo "<b>".$_SESSION["name"]."</b>"; ?>,Your payment process is 
-											successfully completed and your Transaction id is <b><?php echo $trx_id; ?></b><br/>
-											you can continue your Shopping <br/></p>
-											<a href="index.php" class="btn btn-success btn-lg">Continue Shopping</a>
+											<p>Hola <?php echo "<b>".$_SESSION["name"]."</b>"; ?>, tu compra ha
+											sido registrada en el sistema 
+											exitosamente. El ID de tu transacción es: <b><?php echo $trx_id; ?></b>   <br/>
+											¿Seguir comprando?<br/></p>
+											<a href="index.php" class="btn btn-success btn-lg">Ir a productos</a>
 										</div>
 										<div class="panel-footer"></div>
 									</div>
@@ -100,52 +91,4 @@ if (isset($_GET["st"])) {
 
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

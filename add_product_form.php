@@ -12,7 +12,6 @@ if (isset($_POST["login_user_with_product"])) {
 	$json_e = json_encode($product_list);
 	//here we are creating cookie and name of cookie is product_list
 	setcookie("product_list",$json_e,strtotime("+1 day"),"/","","",TRUE);
-
 }
 ?>
 <!DOCTYPE html>
@@ -36,8 +35,8 @@ if (isset($_POST["login_user_with_product"])) {
 				<a href="#" class="navbar-brand">Yachay Market</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>Product</a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span> Productos</a></li>
 			</ul>
 		</div>
 	</div>
