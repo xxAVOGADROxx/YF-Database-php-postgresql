@@ -463,7 +463,9 @@ if(isset($_POST["get_product_sellprofile"])){
 									<p>$pro_desc</p>
 							</div>
 							<div class='panel-heading'>$  $pro_price
-								<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>Añadir</button>
+								<button pid='$pro_id' style='float:none;' id='product' class='btn btn-danger btn-xs'>Añadir</button>
+								<button pid='$pro_id' style='float:none;' id='product_update' class='btn btn-danger btn-xs'>Actualizar</button>
+								<button pid='$pro_id' style='float:right;' id='product_delete' class='btn btn-danger btn-xs'>Eliminar</button>
 							</div>
 						</div>
 					</div>

@@ -60,7 +60,7 @@ if (isset($_POST["login_user_with_product"])) {
 					<div class="panel-body">
 						<!--User Login Form-->
 						<form onsubmit="return false" id="add_product">
-							<label for="title">Title</label>
+							<label for="title">Nombre del Producto</label>
 							<input type="title" class="form-control" name="title_prod" id="title_prod" required/>
 
 							<label for="">Categoria</label>
@@ -76,10 +76,10 @@ if (isset($_POST["login_user_with_product"])) {
 							</select>
 
 							<label for="description">Descripción</label>
-              <input type="description" class="form-control" name="description_prod" id="description_prod" placeholder= "Máximo 255 caracters" required/>
+              <input type="description" class="form-control" name="description_prod" id="description_prod" placeholder= "Máximo 255 carácteres" required/>
 
-              <label for="keywords">keywords</label>
-							<input type="keywords" class="form-control" name="keywords_prod" id="keywords_prod" placeholder= "ej. keqyword1, keyword2" required/>
+              <label for="keywords">Palabras Clave</label>
+							<input type="keywords" class="form-control" name="keywords_prod" id="keywords_prod" required/>
 
               <label for="stock">Stock</label>
 							<input type="stock" class="form-control" name="stock_prod" id="stock_prod" placeholder= "Items disponibles" required/>
@@ -91,7 +91,13 @@ if (isset($_POST["login_user_with_product"])) {
 							<input type="limitdate" class="form-control" name="limit_date_prod" id="limit_date_prod" placeholder= "año-mes-día" required/>
 
               <label for="imageprod">Image</label>
-							<input type="imageprod" class="form-control" name="image_prod" id="image_prod" placeholder= "año-mes-día" required/>
+							<input type="imageprod" class="form-control" name="image_prod" id="image_prod" placeholder= "" required/>
+
+							<form action="upload.php" method="post" enctype="multipart/form-data">
+    							Select image to upload:
+    							<input type="file" name="fileToUpload" id="fileToUpload">
+    							<input type="submit" value="Upload Image" name="submit">
+							</form>
 
               <p><br/></p>
               <a href="sellprofile.php" class="btn btn-success" style="float:left">Cancel</a><input type="submit" class="btn btn-success" style="float:right;" Value="Add">

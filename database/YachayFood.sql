@@ -62,6 +62,7 @@ create table products (
 	product_desc varchar(255) not null,
 	product_image varchar not null,
 	product_keywords varchar not null
+	--product_img bytea
 );
 
 insert into products (user_id, stock, limit_date, register_date, product_cat, product_prov, product_title, product_price, product_desc, product_image, product_keywords)values
