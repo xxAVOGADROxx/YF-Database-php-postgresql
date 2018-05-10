@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 
@@ -411,23 +413,13 @@ if(isset($_POST["get_sell_brand"])){
 		echo "</div>";
 	}
 }
-if(isset($_POST["page"])){
-	$sql = "SELECT * FROM products";
-	$run_query = pg_query($con,$sql);
-	$count = pg_num_rows($run_query);
-	$pageno = ceil($count/9);
-	for($i=1;$i<=$pageno;$i++){
-		echo "
-			<li><a href='#' page='$i' id='page'>$i</a></li>
-		";
-	}
-}
+
 //product
 if(isset($_POST["get_product_sellprofile"])){
 	$user_id = $_SESSION["uid"];
 	$limit = 9;
-	if(isset($_POST["setPage"])){
-		$pageno = $_POST["pageNumber"];
+	if(isset($_POST["setPage_sellprofile"])){
+		$pageno = $_POST["pageNumber_sellprofile"];
 		$start = ($pageno * $limit) - $limit;
 	}else{
 		$start = 0;
@@ -471,6 +463,19 @@ if(isset($_POST["get_product_sellprofile"])){
 					</div>
 			";
 		}
+	}
+}
+//barra de busqueda en page_sellprofile
+if(isset($_POST["page_sellprofile"])){
+	$user_id = $_SESSION["uid"];
+	$sql = "SELECT * FROM products WHERE user_id = '$user_id'";
+	$run_query = pg_query($con,$sql);
+	$count = pg_num_rows($run_query);
+	$pageno = ceil($count/9);
+	for($i=1;$i<=$pageno;$i++){
+		echo "
+			<li><a href='#' page='$i' id='page'>$i</a></li>
+		";
 	}
 }
 	if(isset($_POST["get_seleted_Category_sellprofile"])  || isset($_POST["selectBrand_sellprofile"]) || isset($_POST["search_sellprofile"])){

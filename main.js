@@ -335,6 +335,28 @@ $(document).ready(function(){
 
 
 // Funciones Añadidas para venta de productos
+page_sellprofile();
+function page_sellprofile(){
+	$.ajax({
+		url	:	"action.php",
+		method	:	"POST",
+		data	:	{page_sellprofile:1},
+		success	:	function(data){
+			$("#pageno_sellprofile").html(data);
+		}
+	})
+}
+$("body").delegate("#page","click",function(){
+	var pn = $(this).attr("page");
+	$.ajax({
+		url	:	"action.php",
+		method	:	"POST",
+		data	:	{get_product_sellprofile:1,setPage_sellprofile:1,pageNumber_sellprofile:pn},
+		success	:	function(data){
+			$("#get_product_sellprofile").html(data);
+		}
+	})
+})
 
 function sell_category(){//sell category
 	$.ajax({

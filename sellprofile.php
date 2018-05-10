@@ -149,7 +149,7 @@ if(!isset($_SESSION["uid"])){
 	<div class="row">
 		<div class="col-md-12">
 			<center>
-				<ul class="pagination" id="pageno">
+				<ul class="pagination" id="pageno_sellprofile">
 					<li><a href="#">1</a></li>
 				</ul>
 			</center>
