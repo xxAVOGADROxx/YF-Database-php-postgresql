@@ -12,7 +12,8 @@ if(isset($_POST["title_prod"]) &&
    isset($_POST["stock_prod"])&&
    isset($_POST["price_prod"])&&
    isset($_POST["limit_date_prod"])&&
-   isset($_POST["image_prod"])
+   isset($_POST["image_prod"]) &&
+   isset($_POST["catego_prod"])
  ){
   $title = pg_escape_string($con,$_POST["title_prod"]);
   $description = pg_escape_string($con,$_POST["description_prod"]);
@@ -22,10 +23,11 @@ if(isset($_POST["title_prod"]) &&
   $keywords = pg_escape_string($con,$_POST["keywords_prod"]);
   $image = pg_escape_string($con,$_POST["image_prod"]);
   $id_session=(int)pg_escape_string($_SESSION["uid"]);
+  $catego= pg_escape_string($con,$_POST["catego_prod"]);
 
   $sql = "INSERT INTO products (user_id, product_desc, stock, limit_date, register_date, product_cat, product_prov, product_title, product_price,
      product_image, product_keywords) values
-  ('$id_session', '$description', '$stock', '$limitdate', now(), 1, 2, '$title', '$price', '$image', '$keywords' )";
+  ('$id_session', '$description', '$stock', '$limitdate', now(), '$catego', isProveedor('$id_session'), '$title', '$price', '$image', '$keywords' )";
 	$run_query = pg_query($con,$sql);
   echo "add_success";
   exit();

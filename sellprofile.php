@@ -39,7 +39,7 @@ if(!isset($_SESSION["uid"])){
 				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>Buy Product</a></li>
 				<li><a href="sellprofile.php"><span class="glyphicon glyphicon-modal-window"></span>Sell Product</a></li>
 				<li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search" placeholder="Buscar productos"></li>
-				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn">Buscar</button></li>
+				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn_sellprofile">Buscar</button></li>
 			</ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#" id="cart_container" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart<span class="badge">0</span></a>
@@ -108,7 +108,7 @@ if(!isset($_SESSION["uid"])){
 				<li><a href="#">Categories</a></li>
 				<li><a href="#">Categories</a></li>
 			</div> -->
-			<div id="get_prov_sellprofile">
+			<div id="get_sell_brand">
 			</div>
 			<!--<div class="nav nav-pills nav-stacked">
 				<li class="active"><a href="#"><h4>Brand</h4></a></li>
@@ -149,7 +149,7 @@ if(!isset($_SESSION["uid"])){
 	<div class="row">
 		<div class="col-md-12">
 			<center>
-				<ul class="pagination" id="pageno">
+				<ul class="pagination" id="pageno_sellprofile">
 					<li><a href="#">1</a></li>
 				</ul>
 			</center>

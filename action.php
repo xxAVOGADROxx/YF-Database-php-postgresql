@@ -1,3 +1,5 @@
+
+
 <?php
 session_start();
 
@@ -69,6 +71,11 @@ if(isset($_POST["getProduct"])){
 			$pro_price = $row['product_price'];
 			$pro_desc = $row['product_desc'];
 			$pro_image = $row['product_image'];
+			$pro_user_id = $row['user_id'];
+			$pro_stock = $row['stock'];
+			$user_query = "SELECT first_name ||' '|| last_name as full_name from user_info where $pro_user_id = user_id";
+			$run_user_query = pg_query($con,$user_query);
+			$result = pg_fetch_array($run_user_query );
 			echo "
 				<div class='col-md-4'>
 							<div class='panel panel-info'>
@@ -80,7 +87,8 @@ if(isset($_POST["getProduct"])){
 								</div>
 								<div class='panel-body'>
 									<center>
-         							<p style = color:#FFFFFF; >Descripción del Producto.</p>
+         							<p style = color:#FFFFFF; >$result[full_name] </p>
+											<p style = color:#FFFFFF; >Stock: 	$pro_stock </p>
 									</center>
 									<hr />
   									<p>$pro_desc</p>
@@ -115,6 +123,11 @@ if(isset($_POST["get_seleted_Category"]) || isset($_POST["selectBrand"]) || isse
 			$pro_price = $row['product_price'];
 			$pro_desc = $row['product_desc'];
 			$pro_image = $row['product_image'];
+			$pro_user_id = $row['user_id'];
+			$pro_stock = $row['stock'];
+			$user_query = "SELECT first_name ||' '|| last_name as full_name from user_info where $pro_user_id = user_id";
+			$run_user_query = pg_query($con,$user_query);
+			$result = pg_fetch_array($run_user_query );
 			echo "
 				<div class='col-md-4'>
 							<div class='panel panel-info'>
@@ -126,13 +139,14 @@ if(isset($_POST["get_seleted_Category"]) || isset($_POST["selectBrand"]) || isse
 								</div>
 								<div class='panel-body'>
 									<center>
-									<p style = color:#FFFFFF; >Descripci�n del Producto.</p>
+									<p style = color:#FFFFFF; >$result[full_name] </p>
+									<p style = color:#FFFFFF; >Stock: 	$pro_stock </p>
 									</center>
 									<hr />
 									<p>$pro_desc</p>
 								</div>
 								<div class='panel-heading'>$  $pro_price
-									<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>A�adir</button>
+									<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>Añadir</button>
 								</div>
 							</div>
 				</div>
@@ -153,7 +167,7 @@ if(isset($_POST["get_seleted_Category"]) || isset($_POST["selectBrand"]) || isse
 			echo "
 				<div class='alert alert-warning'>
 						<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-						<b>Ya has a�adido este producto!</b>
+						<b>Ya has añadido este producto!</b>
 				</div>
 			";//not in video
 		} else {
@@ -351,25 +365,46 @@ if(isset($_POST["sellprofile"])){
 	$run_query = pg_query($con,$category_query) or die("Error de conexion.". pg_error());
 	echo "
 		<div class='nav nav-pills nav-stacked'>
-			<li class='active'><a href='#'><h4>Categories</h4></a></li>
+			<li class='active'><a href='#'><h5>Categorias</h5></a></li>
 	";
 	if(pg_num_rows($run_query) > 0){
 		while($row = pg_fetch_array($run_query)){
 			$cid = $row["cat_id"];
 			$cat_name = $row["cat_title"];
 			echo "
-					<li><a href='#' class='category' cid='$cid'>$cat_name</a></li>
+					<li><a href='#' class='sell_category' cid='$cid'>$cat_name</a></li>
 			";
 		}
 		echo "</div>";
 	}
 }
+//Proveedores
+if(isset($_POST["get_sell_brand"])){
+	$id_session = (int)pg_escape_string($_SESSION["uid"]);
+	$prov_query = "SELECT * FROM providers WHERE prov_id IN(SELECT product_prov FROM products WHERE user_id = '$id_session')";
+	$run_query = pg_query($con,$prov_query);
+	echo "
+		<div class='nav nav-pills nav-stacked'>
+			<li class='active'><a href='#'><h5>Organizaciones</h5></a></li>
+	";
+	if(pg_num_rows($run_query) > 0){
+		while($row = pg_fetch_array($run_query)){
+			$bid = $row["prov_id"];
+			$brand_name = $row["prov_title"];
+			echo "
+					<li><a href='#' class='selectBrand_sellprofile' bid='$bid'>$brand_name</a></li>
+			";
+		}
+		echo "</div>";
+	}
+}
+
 //product
 if(isset($_POST["get_product_sellprofile"])){
 	$user_id = $_SESSION["uid"];
 	$limit = 9;
-	if(isset($_POST["setPage"])){
-		$pageno = $_POST["pageNumber"];
+	if(isset($_POST["setPage_sellprofile"])){
+		$pageno = $_POST["pageNumber_sellprofile"];
 		$start = ($pageno * $limit) - $limit;
 	}else{
 		$start = 0;
@@ -385,6 +420,11 @@ if(isset($_POST["get_product_sellprofile"])){
 			$pro_price = $row['product_price'];
 			$pro_desc = $row['product_desc'];
 			$pro_image = $row['product_image'];
+			$pro_user_id = $row['user_id'];
+			$pro_stock = $row['stock'];
+			$user_query = "SELECT first_name ||' '|| last_name as full_name from user_info where $pro_user_id = user_id";
+			$run_user_query = pg_query($con,$user_query);
+			$result = pg_fetch_array($run_user_query );
 			echo "
 			<div class='col-md-4'>
 						<div class='panel panel-info'>
@@ -396,7 +436,7 @@ if(isset($_POST["get_product_sellprofile"])){
 							</div>
 							<div class='panel-body'>
 								<center>
-										<p style = color:#FFFFFF; >Descripción del Producto.</p>
+								<p style = color:#FFFFFF; >Stock: 	$pro_stock </p>
 								</center>
 								<hr />
 									<p>$pro_desc</p>
@@ -410,6 +450,70 @@ if(isset($_POST["get_product_sellprofile"])){
 		}
 	}
 }
+//barra de busqueda en page_sellprofile
+if(isset($_POST["page_sellprofile"])){
+	$user_id = $_SESSION["uid"];
+	$sql = "SELECT * FROM products WHERE user_id = '$user_id'";
+	$run_query = pg_query($con,$sql);
+	$count = pg_num_rows($run_query);
+	$pageno = ceil($count/9);
+	for($i=1;$i<=$pageno;$i++){
+		echo "
+			<li><a href='#' page='$i' id='page'>$i</a></li>
+		";
+	}
+}
+	if(isset($_POST["get_seleted_Category_sellprofile"])  || isset($_POST["selectBrand_sellprofile"]) || isset($_POST["search_sellprofile"])){
+		$user_id = $_SESSION["uid"];
+		if(isset($_POST["get_seleted_Category_sellprofile"])){
+			$id = $_POST["cat_id"];
+			$sql = "SELECT * FROM products WHERE product_cat = '$id' and user_id = '$user_id' ";
+		}else if(isset($_POST["selectBrand_sellprofile"])){
+			$id = $_POST["brand_id"];
+			$sql = "SELECT * FROM products WHERE product_prov = '$id'and user_id = '$user_id' ";
+		}else {
+			$keyword = $_POST["keyword"];
+			$sql = "SELECT * FROM products WHERE product_keywords LIKE '%$keyword%'";
+		}
+
+		$run_query = pg_query($con,$sql);
+		while($row=pg_fetch_array($run_query)){
+				$pro_id    = $row['product_id'];
+				$pro_cat   = $row['product_cat'];
+				$pro_brand = $row['product_prov'];
+				$pro_title = $row['product_title'];
+				$pro_price = $row['product_price'];
+				$pro_desc = $row['product_desc'];
+				$pro_image = $row['product_image'];
+				$pro_user_id = $row['user_id'];
+				$pro_stock = $row['stock'];
+				$user_query = "SELECT first_name ||' '|| last_name as full_name from user_info where $pro_user_id = user_id";
+				$run_user_query = pg_query($con,$user_query);
+				$result = pg_fetch_array($run_user_query );
+				echo "
+					<div class='col-md-4'>
+								<div class='panel panel-info'>
+									<div class='panel-heading'>$pro_title</div>
+									<div class='panel-body'>
+										<center>
+										<img src='product_images/$pro_image' style='width:160px; height:160px;'/>
+										</center>
+									</div>
+									<div class='panel-body'>
+										<center>
+										<p style = color:#FFFFFF; >Stock: 	$pro_stock </p>
+										</center>
+										<hr />
+										<p>$pro_desc</p>
+									</div>
+									<div class='panel-heading'>$  $pro_price
+										<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>Añadir</button>
+									</div>
+								</div>
+					</div>
+				";
+			}
+		}
 
 
 
