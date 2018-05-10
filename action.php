@@ -280,50 +280,29 @@ if (isset($_POST["Common"])) {
 								<div class="col-md-2"><input type="text" class="form-control qty" value="'.$qty.'" ></div>
 								<div class="col-md-2"><input type="text" class="form-control price" value="'.$product_price.'" readonly="readonly"></div>
 								<div class="col-md-2"><input type="text" class="form-control total" value="'.$product_price.'" readonly="readonly"></div>
-							</div>';
+						</div>';
 				}
 
-				echo '<div class="row">
+				echo 	'<div class="row">
 							<hr />
 							<div class="col-md-8"></div>
-							<div class="col-md-4">
-								<b class="net_total" style="font-size:20px;"> </b>
-					</div>';
+							<div class="col-md-4"><b class="net_total" style="font-size:20px;"> </b>
+	
+						</div>';
 				if (!isset($_SESSION["uid"])) {
 					echo '<input type="submit" style="float:right;" name="login_user_with_product" class="btn btn-info btn-lg" value="Comprar" >
 							</form>';
 
 				}else if(isset($_SESSION["uid"])){
-					//Paypal checkout form
-					echo '
-						</form>
-						<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-							<input type="hidden" name="cmd" value="_cart">
-							<input type="hidden" name="business" value="shoppingcart@khanstore.com">
-							<input type="hidden" name="upload" value="1">';
-
-							$x=0;
-							$sql = "SELECT a.product_id,a.product_title,a.product_price,a.product_image,b.id,b.qty FROM products a,cart b WHERE a.product_id=b.p_id AND b.user_id='$_SESSION[uid]'";
-							$query = pg_query($con,$sql);
-							while($row=pg_fetch_array($query)){
-								$x++;
-								echo
-									'<input type="hidden" name="item_name_'.$x.'" value="'.$row["product_title"].'">
-								  	 <input type="hidden" name="item_number_'.$x.'" value="'.$x.'">
-								     <input type="hidden" name="amount_'.$x.'" value="'.$row["product_price"].'">
-								     <input type="hidden" name="quantity_'.$x.'" value="'.$row["qty"].'">';
-								}
-
-							echo
-								'<input type="hidden" name="return" value="http://localhost/project1/payment_success.php"/>
-					                <input type="hidden" name="notify_url" value="http://localhost/project1/payment_success.php">
-									<input type="hidden" name="cancel_return" value="http://localhost/project1/cancel.php"/>
-									<input type="hidden" name="currency_code" value="USD"/>
-									<input type="hidden" name="custom" value="'.$_SESSION["uid"].'"/>
-									<input style="float:right;margin-right:80px;" type="image" name="submit"
-										src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypalcheckout-60px.png" alt="PayPal Checkout"
-										alt="PayPal - The safer, easier way to pay online">
-								</form>';
+					//Here i am adding the functionality to perform the order
+					echo '<div class="row">
+						<div class="col-md-8">
+						</div>
+						<div class="col-md-2">
+						<a href="payment_success.php"><img src="https://mexico.feebbo.com/feebbomx/assets/1.4.31-SNAPSHOT/ctx/styles/images/button-BUY2.png" width=130px></a>
+						</div>
+						</div>';
+					
 				}
 			}
 	}

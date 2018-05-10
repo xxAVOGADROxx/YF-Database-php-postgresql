@@ -37,7 +37,7 @@ if(!isset($_SESSION["uid"])){
 			<ul class="nav navbar-nav">
 				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
 				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span> Productos</a></li>
-				<li><a href="sellprofile.php"><span class="glyphicon glyphicon-modal-window"></span>Sell Product</a></li>
+				<li><a href="sellprofile.php"><span class="glyphicon glyphicon-modal-window"></span> Vender!</a></li>
 				<li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search" placeholder="Buscar productos"></li>
 				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn">Buscar</button></li>
 			</ul>
@@ -69,11 +69,11 @@ if(!isset($_SESSION["uid"])){
 				</li>
 				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><?php echo "Hola, ".$_SESSION["name"]; ?></a>
 					<ul class="dropdown-menu">
-						<li><a href="cart.php" style="text-decoration:none; color:white;"><span class="glyphicon glyphicon-shopping-cart">Cart</a></li>
+						<li><a href="cart.php" style="text-decoration:none; color:white;"><span class="glyphicon glyphicon-shopping-cart"> Cart</a></li>
 						<li class="divider"></li>
-						<li><a href="customer_order.php" style="text-decoration:none; color:white;">Orders</a></li>
+						<li><a href="customer_order.php" style="text-decoration:none; color:white;"> Ordenes </a></li>
 						<li class="divider"></li>
-						<li><a href="logout.php" style="text-decoration:none; color:white;">Logout</a></li>
+						<li><a href="logout.php" style="text-decoration:none; color:white;"> Salir</a></li>
 					</ul>
 				</li>
 
