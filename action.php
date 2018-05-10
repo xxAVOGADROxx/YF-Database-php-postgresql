@@ -167,7 +167,7 @@ if(isset($_POST["get_seleted_Category"]) || isset($_POST["selectBrand"]) || isse
 			echo "
 				<div class='alert alert-warning'>
 						<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-						<b>Ya has a�adido este producto!</b>
+						<b>Ya has añadido este producto!</b>
 				</div>
 			";//not in video
 		} else {
