@@ -30,7 +30,7 @@ $(document).ready(function(){
 		})
 	}
 	//product() is a funtion fetching product record from database whenever page is load
-		function product(){
+	function product(){
 		$.ajax({
 			url	:	"action.php",
 			method:	"POST",
@@ -40,6 +40,9 @@ $(document).ready(function(){
 			}
 		})
 	}
+	
+	
+
 	/*	when page is load successfully then there is a list of categories when user click on category we will get category id and
 		according to id we will show products
 	*/
@@ -249,6 +252,8 @@ $(document).ready(function(){
 			}
 		})
 	})
+
+	
 	/*
 		whenever user click on .update class we will take product id of that row
 		and send it to action.php to perform product qty updation operation
@@ -398,7 +403,6 @@ $("body").delegate(".sell_category","click",function(event){
 	$("#get_product_sellprofile").html("<h3>Loading...</h3>");
 	event.preventDefault();
 	var cid = $(this).attr('cid');
-
 		$.ajax({
 		url		:	"action.php",
 		method	:	"POST",
@@ -420,7 +424,6 @@ $("body").delegate(".selectBrand_sellprofile","click",function(event){
 	event.preventDefault();
 	$("#get_product_sellprofile").html("<h3>Loading...</h3>");
 	var bid = $(this).attr('bid');
-
 		$.ajax({
 		url		:	"action.php",
 		method	:	"POST",
