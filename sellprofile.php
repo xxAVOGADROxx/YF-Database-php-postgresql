@@ -19,6 +19,43 @@ if(!isset($_SESSION["uid"])){
 				#search{width:80%;}
 				#search_btn{width:30%;float:right;margin-top:-32px;margin-right:10px;}
 			}
+
+			.btn1 {
+				display: inline-block;
+				margin-bottom: 0;
+				font-weight: normal;
+				text-align: center;
+				vertical-align: middle;
+				-ms-touch-action: manipulation;
+				touch-action: manipulation;
+				cursor: pointer;
+				background-image: none;
+				border: 1px solid transparent;
+				white-space: nowrap;
+				padding: 8px 12px;
+				font-size: 14px;
+				line-height: 1.42857143;
+				border-radius: 4px;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+			.btn-xs1, .btn-group-xs1 > .btn1 {
+				padding: 1px 5px;
+				font-size: 12px;
+				line-height: 1.5;
+				border-radius: 3px;
+			}
+
+			.btn-danger1 {
+				color: #ffffff;
+				background-color: #C0392B;
+				border-color: #FDFEFE;
+			}
+
+
 		</style>
 	</head>
 <body>
@@ -35,11 +72,10 @@ if(!isset($_SESSION["uid"])){
 			</div>
 		<div class="collapse navbar-collapse" id="collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>Buy Product</a></li>
-				<li><a href="sellprofile.php"><span class="glyphicon glyphicon-modal-window"></span>Sell Product</a></li>
-				<li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search" placeholder="Buscar productos"></li>
-				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn_sellprofile">Buscar</button></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>  Inicio</a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>  Productos</a></li>
+				<!-- <li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search" placeholder="Buscar productos"></li>
+				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn">Buscar</button></li> -->
 			</ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#" id="cart_container" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart<span class="badge">0</span></a>
@@ -47,10 +83,10 @@ if(!isset($_SESSION["uid"])){
             <div class="panel panel-success">
               <div class="panel-heading">
                 <div class="row">
-                  <div class="col-md-3 col-xs-3">Sl.No</div>
-                  <div class="col-md-3 col-xs-3">Product Image</div>
-                  <div class="col-md-3 col-xs-3">Product Name</div>
-                  <div class="col-md-3 col-xs-3">Price in $.</div>
+									<div class="col-md-3 col-xs-3">N°.</div>
+									<div class="col-md-3 col-xs-3">Imagen Producto</div>
+									<div class="col-md-3 col-xs-3">Nombre Producto</div>
+									<div class="col-md-3 col-xs-3">Precio $.</div>
                 </div>
               </div>
               <div class="panel-body">
@@ -67,15 +103,13 @@ if(!isset($_SESSION["uid"])){
             </div>
           </div>
         </li>
-        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><?php echo "Hi,".$_SESSION["name"]; ?></a>
+        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><?php echo "Hola, ".$_SESSION["name"]; ?></a>
           <ul class="dropdown-menu">
-            <li><a href="cart.php" style="text-decoration:none; color:blue;"><span class="glyphicon glyphicon-shopping-cart">Cart</a></li>
+            <li><a href="cart.php" style="text-decoration:none; color:white;"><span class="glyphicon glyphicon-shopping-cart">Cart</a></li>
             <li class="divider"></li>
-            <li><a href="customer_order.php" style="text-decoration:none; color:blue;">Orders</a></li>
+            <li><a href="customer_order.php" style="text-decoration:none; color:white;">Ordenes</a></li>      
             <li class="divider"></li>
-            <li><a href="" style="text-decoration:none; color:blue;">Change Password</a></li>
-            <li class="divider"></li>
-            <li><a href="logout.php" style="text-decoration:none; color:blue;">Logout</a></li>
+            <li><a href="logout.php" style="text-decoration:none; color:white;">Salir</a></li>
           </ul>
         </li>
       </ul>
@@ -87,14 +121,21 @@ if(!isset($_SESSION["uid"])){
 <br>
 <br>
 <br>
-<!--button to add a product-->
-<div class="collapse navbar-collapse" id="collapse">
-  <ul class="nav navbar-nav">
-    <li><a href="add_product_form.php"><span class="glyphicon glyphicon-plus"></span>Add Product</a></li>
 
-  </ul>
-</div>
-<!--button to add a product-->
+
+
+
+<!--BARRA DE BIENVENIDA-->
+<div class="panel panel-info" id="scroll">
+		<div class="panel-heading"> 
+			<center> 
+					<h5>
+						BIENVENIDO AL PANEL DE ADMINISTRACION DE PRODUCTOS
+					</h5>
+			</center>
+		</div>
+</div> 
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-1"></div>
@@ -123,8 +164,9 @@ if(!isset($_SESSION["uid"])){
 				<div class="col-md-12 col-xs-12" id="product_msg">
 				</div>
 			</div>
+			
 			<div class="panel panel-info" id="scroll">
-				<div class="panel-heading">Products</div>
+				<div class="panel-heading">Productos</div>
 				<div class="panel-body">
 					<div id="get_product_sellprofile">
 						<!--Here we get product jquery Ajax Request-->
@@ -140,12 +182,21 @@ if(!isset($_SESSION["uid"])){
 							</div>
 						</div>
 					</div> -->
+				
 				</div>
 				<div class="panel-footer"> Ecuador</div>
 			</div>
 		</div>
-		<div class="col-md-1"></div>
+		<!-- Esta columna va el boton para añadir producto en forma de imagen png -->
+		<div class="col-md-1">
+			<center>
+			<hr>
+			<a href="add_product_form.php"><img src="icons_and_more/subir_prod.png" width=70px></a>
+			<hr>
+			</center>
+		</div>
 	</div>
+	<!-- Esto es para el pie de pagina donde va la numeracion  -->
 	<div class="row">
 		<div class="col-md-12">
 			<center>

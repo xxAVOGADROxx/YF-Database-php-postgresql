@@ -41,12 +41,13 @@ create table orders (
 	product_id integer not null,
 	qty integer not null,
 	trx_id varchar not null,
-	p_status varchar not null
+	p_status varchar not null,
+	order_date date
 );
 
-insert into orders (user_id, product_id, qty, trx_id, p_status)values
-	(2, 7, 1, '07M47684BS5725041', 'Completed'),
-	(2, 2, 1, '07M47684BS5725041', 'Completed');
+insert into orders (user_id, product_id, qty, trx_id, p_status, order_date)values
+	(2, 7, 1, '07M47684BS5725041', 'Completed', '2018-05-18'),
+	(2, 2, 1, '07M47684BS5725041', 'Completed', '2018-05-18');
 
 
 create table products (
@@ -67,19 +68,19 @@ create table products (
 
 insert into products (user_id, stock, limit_date, register_date, product_cat, product_prov, product_title, product_price, product_desc, product_image, product_keywords)values
 	( 1, 10, '2018-05-18', now(), 3, 1, 'Desayuno Normal', 2.50, 'Emparedado, huevos fritos, jugo y leche/café', 'desayuno_n.jpg', 'comida desayuno'),
-	( 1, 10, '2018-05-18', now(), 1, 2, 'Desayuno Express', 1.75, 'Emparedado y leche/café', 'desayuno_e.jpg', 'comida desayuno'),
-	( 1, 10, '2018-05-18', now(), 1, 3, 'Desayuno Continental', 3.50, 'Huevos revueltos, chorizo, emparedado, jugo y leche/café', 'desayuno_c.jpg', 'comida desayuno'),
-	( 1, 10, '2018-05-18', now(), 2, 1, 'Almuerzo Completo', 2.50, 'Seco de carne, jugo de piña y ensalada de tomate', 'almuerzo_1.jpg', 'comida almuerzo'),
+	( 2, 10, '2018-05-18', now(), 1, 2, 'Desayuno Express', 1.75, 'Emparedado y leche/café', 'desayuno_e.jpg', 'comida desayuno'),
+	( 3, 10, '2018-05-18', now(), 1, 3, 'Desayuno Continental', 3.50, 'Huevos revueltos, chorizo, emparedado, jugo y leche/café', 'desayuno_c.jpg', 'comida desayuno'),
+	( 4, 10, '2018-05-18', now(), 2, 1, 'Almuerzo Completo', 2.50, 'Seco de carne, jugo de piña y ensalada de tomate', 'almuerzo_1.jpg', 'comida almuerzo'),
 	( 1, 10, '2018-05-18', now(), 2, 2, 'Almuerzo Completo', 3.00, 'Corvina frita, papas fritas, curtido y jugo de piña', 'almuerzo_2.jpg', 'comida almuerzo'),
-	( 1, 10, '2018-05-18', now(), 2, 3, 'Almuerzo Completo', 2.25, 'Pollo al horno, pure de papas y jugo de piña', 'almuerzo_3.jpg', 'comida almuerzo'),
-	( 1, 10, '2018-05-18', now(), 3, 2, 'Merienda Completa', 2.25, 'Pollo broster con papas fritas y café', 'merienda_1.jpg', 'comida merienda'),
-	( 1, 10, '2018-05-18', now(), 4, 1, 'Pay de chocolate', 1.50, 'Porción de pay de chocolate. Fresco y delicioso.', 'postre_1.jpg', 'comida postre'),
+	( 2, 10, '2018-05-18', now(), 2, 3, 'Almuerzo Completo', 2.25, 'Pollo al horno, pure de papas y jugo de piña', 'almuerzo_3.jpg', 'comida almuerzo'),
+	( 3, 10, '2018-05-18', now(), 3, 2, 'Merienda Completa', 2.25, 'Pollo broster con papas fritas y café', 'merienda_1.jpg', 'comida merienda'),
+	( 4, 10, '2018-05-18', now(), 4, 1, 'Pay de chocolate', 1.50, 'Porción de pay de chocolate. Fresco y delicioso.', 'postre_1.jpg', 'comida postre'),
 	( 1, 10, '2018-05-18', now(), 4, 2, 'Exquisita tarta', 2.25, 'Tarta de queso con frambuesas', 'postre_2.jpg', 'comida postre'),
-	( 1, 10, '2018-05-18', now(), 5, 3, 'Jugos naturales', 1.50, 'Vasos de jugo 100% Natural: Fresa, manzana y limón', 'bebida_1.jpg', 'bebida jugo'),
-	( 1, 10, '2018-05-18', now(), 5, 2, 'Cerveza Pilsener', 2.25, 'Cerveza Pilsener de 1 Litro', 'bebida_2.jpg', 'bebida cerveza'),
-	( 1, 10, '2018-05-18', now(), 6, 1, 'Aguacates Rellenos', 2.00, 'Aguacates rellenos de queso mozarella', 'entrada_1.jpg', 'comida entrada'),
+	( 2, 10, '2018-05-18', now(), 5, 3, 'Jugos naturales', 1.50, 'Vasos de jugo 100% Natural: Fresa, manzana y limón', 'bebida_1.jpg', 'bebida jugo'),
+	( 3, 10, '2018-05-18', now(), 5, 2, 'Cerveza Pilsener', 2.25, 'Cerveza Pilsener de 1 Litro', 'bebida_2.jpg', 'bebida cerveza'),
+	( 4, 10, '2018-05-18', now(), 6, 1, 'Aguacates Rellenos', 2.00, 'Aguacates rellenos de queso mozarella', 'entrada_1.jpg', 'comida entrada'),
 	( 1, 10, '2018-05-18', now(), 7, 2, 'Ensalada de verduras', 2.75, 'Ensalada de apio, tomate y agua', 'ensalada_1.jpg', 'comida ensalada'),
-	( 1, 10, '2018-05-18', now(), 8, 3, 'Cigarrillos en oferta', 5.25, 'Vendo media de cigarrillos Lider', 'otros_1.jpg', 'otros cigarros cigarrillos');
+	( 2, 10, '2018-05-18', now(), 8, 3, 'Cigarrillos en oferta', 5.25, 'Vendo media de cigarrillos Lider', 'otros_1.jpg', 'otros cigarros cigarrillos');
 
 create table user_info (
 	user_id serial primary key ,
@@ -90,12 +91,16 @@ create table user_info (
 	mobile varchar (10) not null,
 	address1 varchar not null,
 	address2 varchar not NULL,
-	organization int,
+	organization int
 );
 
+-- Las contraseñas guardadas el password es 1234567890
+
 insert into user_info (first_name, last_name, email, password, mobile, address1, address2)values
-	( 'Henry', 'Caraguay', 'henry.caraguay@gmail.com', '1234567890loja', '0986100449', 'Loja', 'La Banda'),
-	( 'Jose', 'Serquive', 'jose.seraquive@yahoo.com', '1234567890quito', '0987654321', 'Quito', 'El Valle');
+	( 'Henry', 'Caraguay', 'henry.caraguay@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', '0986100449', 'Loja', 'La Banda'),
+	( 'Silvio', 'Landazuri', 'silvio.landazuri@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f', '0986951449', 'Ibarra', 'Urcuqui'),
+	( 'Jose', 'Serquive', 'jose.seraquive@yahoo.com', 'e807f1fcf82d132f9bb018ca6738a19f', '0987659621', 'Quito', 'Chillogallo'),
+	( 'Sra. Blanca', 'Heredia', 'blanca.heredia@yahoo.com', 'e807f1fcf82d132f9bb018ca6738a19f', '0985231321', 'Quito', 'El Valle');
 --FUNCIONES
 create or replace function isProveedor(idsession int) returns int as
 $$

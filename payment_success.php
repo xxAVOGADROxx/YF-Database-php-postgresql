@@ -8,6 +8,7 @@ if(!isset($_SESSION["uid"])){
 		include_once("db.php");
 		$user_id = $_SESSION["uid"];
 		$trx_id = 'Yachafood'.$user_id.'_'.rand(1,999);
+		$order_date = date("Y-m-d");
 		$sql = "SELECT p_id,qty FROM cart WHERE user_id = $user_id";
 		$query = pg_query($con,$sql);
 		if (pg_num_rows($query) > 0) {
@@ -17,9 +18,9 @@ if(!isset($_SESSION["uid"])){
 			$qty[] = $row["qty"];
 			$p_st = 'Completed';
 			}
-
+			
 			for ($i=0; $i < count($product_id); $i++) { 
-				$sql = "INSERT INTO orders (user_id,product_id,qty,trx_id,p_status) VALUES ('$user_id','".$product_id[$i]."','".$qty[$i]."','$trx_id','$p_st')";
+				$sql = "INSERT INTO orders (user_id,product_id,qty,trx_id,p_status,order_date) VALUES ('$user_id','".$product_id[$i]."','".$qty[$i]."','$trx_id','$p_st','$order_date')";
 				pg_query($con,$sql);
 			}
 

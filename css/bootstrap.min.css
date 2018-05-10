@@ -5751,6 +5751,11 @@ button.list-group-item-danger.active:focus {
   background-color: #2a9fd6;
   border-color: #6e2caf;
 }
+
+
+
+
+
 .panel-info > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #6e2caf;
 }

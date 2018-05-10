@@ -19,6 +19,43 @@ if(!isset($_SESSION["uid"])){
 				#search{width:80%;}
 				#search_btn{width:30%;float:right;margin-top:-32px;margin-right:10px;}
 			}
+			
+			.btn1 {
+				display: inline-block;
+				margin-bottom: 0;
+				font-weight: normal;
+				text-align: center;
+				vertical-align: middle;
+				-ms-touch-action: manipulation;
+				touch-action: manipulation;
+				cursor: pointer;
+				background-image: none;
+				border: 1px solid transparent;
+				white-space: nowrap;
+				padding: 8px 12px;
+				font-size: 14px;
+				line-height: 1.42857143;
+				border-radius: 4px;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+			.btn-xs1, .btn-group-xs1 > .btn1 {
+				padding: 1px 5px;
+				font-size: 12px;
+				line-height: 1.5;
+				border-radius: 3px;
+			}
+
+			.btn-danger1 {
+				color: #ffffff;
+				background-color: #C0392B;
+				border-color: #FDFEFE;
+			}
+
+
 		</style>
 	</head>
 <body>

@@ -24,8 +24,8 @@ if (isset($_GET["register"])) {
 				<a href="#" class="navbar-brand">Yachay Market</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>Product</a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>  Inicio</a></li>
+				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>  Productos</a></li>
 			</ul>
 		</div>
 	</div>
