@@ -5,8 +5,6 @@ session_start();
 #If user given credential matches successfully with the data available in database then we will echo string login_success
 #login_success string will go back to called Anonymous funtion $("#login").click()
 if(isset($_POST["title_prod"])){
-
-
   $c_title = $_POST["title_prod"];
   $c_desc = $_POST["description_prod"];
   $c_key = $_POST["keywords_prod"];

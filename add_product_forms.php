@@ -58,13 +58,10 @@ if (isset($_POST["login_user_with_product"])) {
 				<div class="panel panel-primary">
 					<div class="panel-heading">Forma para añadir un nuevo producto</div>
 					<div class="panel-body">
-						<center>
-							Selecione una imagen
-						</center>
-						<form action="upload.php" method="POST" enctype="multipart/form-data">
-			         <input type="file" name="image" />
-			         <input type="submit"/>
-			      </form>
+            <center>
+              Imagen incorrecta? Selecione otra
+						        <a href="add_product_form.php"><img src="icons_and_more/upload.png" width=70px></a>
+            </center>
 						<!--User Login Form-->
 						<form onsubmit="return false" id="add_product" enctype="multipart/form-data">
 							<label for="title">Nombre del Producto</label>
@@ -98,7 +95,7 @@ if (isset($_POST["login_user_with_product"])) {
 							<input type="limitdate" class="form-control" name="limit_date_prod" id="limit_date_prod" placeholder= "año-mes-día" required/>
 
               <label for="imageprod">Image</label>
-							<input type="imageprod" class="form-control" name="image_prod" id="image_prod" required/>
+							<input readonly="readonly" type="imageprod" class="form-control" name="image_prod" id="image_prod" value="<?php	echo $_GET['nombre'];?>" required/>
 
               <p><br/></p>
               <a href="sellprofile.php" class="btn btn-success" style="float:left">Cancel</a><input type="submit" class="btn btn-success" style="float:right;" Value="Add">
