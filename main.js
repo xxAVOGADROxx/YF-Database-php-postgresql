@@ -326,6 +326,7 @@ $(document).ready(function(){
 			}
 		})
 	}
+
 	$("body").delegate("#page","click",function(){
 		var pn = $(this).attr("page");
 		$.ajax({
