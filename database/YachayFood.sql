@@ -59,8 +59,8 @@ create table products (
 	product_cat integer,
 	product_prov integer,
 	product_title varchar not null,
-	product_price numeric not null,
-	product_desc varchar(255) not null,
+	product_price numeric(4,2) not null,
+	product_desc varchar(100) not null,
 	product_image varchar not null,
 	product_keywords varchar not null
 	--product_img bytea
@@ -84,14 +84,14 @@ insert into products (user_id, stock, limit_date, register_date, product_cat, pr
 
 create table user_info (
 	user_id serial primary key ,
-	first_name varchar not null,
-	last_name varchar not null,
-	email varchar not null,
+	first_name varchar(20) not null,
+	last_name varchar(20) not null,
+	email varchar(50) not null,
 	password varchar(300) not null,
 	mobile varchar (10) not null,
-	address1 varchar not null,
-	address2 varchar not NULL,
-	organization int
+	address1 varchar(200) not null,
+	address2 varchar(200) not NULL,
+	organization int(10)
 );
 
 -- Las contraseñas guardadas el password es 1234567890
@@ -111,3 +111,4 @@ begin
     return id_prov;
 end;
 $$ language plpgsql;
+--FOREIGN KEY

@@ -40,8 +40,8 @@ $(document).ready(function(){
 			}
 		})
 	}
-	
-	
+
+
 
 	/*	when page is load successfully then there is a list of categories when user click on category we will get category id and
 		according to id we will show products
@@ -253,7 +253,7 @@ $(document).ready(function(){
 		})
 	})
 
-	
+
 	/*
 		whenever user click on .update class we will take product id of that row
 		and send it to action.php to perform product qty updation operation
@@ -472,11 +472,12 @@ $("#add_product").on("submit",function(event){
 		method:	"POST",
 		data	:$("#add_product").serialize(),
 		success	:function(data){
+			$(".overlay").hide();
 			if(data == "add_success"){
 				window.location.href = "sellprofile.php";
 			}else{
-				$("#e_msg").html(data);
-				$(".overlay").hide();
+				$("#msg_addproduct").html(data);
+
 			}
 		}
 	})
