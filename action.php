@@ -73,13 +73,13 @@ if(isset($_POST["getProduct"])){
 				$pro_price = $row['product_price'];
 				$pro_desc = $row['product_desc'];
 				$pro_image = $row['product_image'];
-				$pro_user_id = $row['user_id'];	
-				$pro_stock = $row['stock'];	
-				$user_query = "SELECT first_name ||' '|| last_name as full_name from user_info where $pro_user_id = user_id";	
-				$run_user_query = pg_query($con,$user_query);	
+				$pro_user_id = $row['user_id'];
+				$pro_stock = $row['stock'];
+				$user_query = "SELECT first_name ||' '|| last_name as full_name from user_info where $pro_user_id = user_id";
+				$run_user_query = pg_query($con,$user_query);
 				$result = pg_fetch_array($run_user_query );
-				
-				
+
+
 				echo "
 					<div class='col-md-4'>
 								<div class='panel panel-info'>
@@ -129,10 +129,10 @@ if(isset($_POST["get_seleted_Category"]) || isset($_POST["selectBrand"]) || isse
 			$pro_price = $row['product_price'];
 			$pro_desc = $row['product_desc'];
 			$pro_image = $row['product_image'];
-			$pro_user_id = $row['user_id'];	
-			$pro_stock = $row['stock'];	
-			$user_query = "SELECT first_name ||' '|| last_name as full_name from user_info where $pro_user_id = user_id";	
-			$run_user_query = pg_query($con,$user_query);	
+			$pro_user_id = $row['user_id'];
+			$pro_stock = $row['stock'];
+			$user_query = "SELECT first_name ||' '|| last_name as full_name from user_info where $pro_user_id = user_id";
+			$run_user_query = pg_query($con,$user_query);
 
 			$result = pg_fetch_array($run_user_query );
 			echo "
@@ -307,7 +307,7 @@ if (isset($_POST["Common"])) {
 							<hr />
 							<div class="col-md-8"></div>
 							<div class="col-md-4"><b class="net_total" style="font-size:20px;"> </b>
-	
+
 						</div>';
 				if (!isset($_SESSION["uid"])) {
 					echo '<input type="submit" style="float:right;" name="login_user_with_product" class="btn btn-info btn-lg" value="Comprar" >
@@ -323,7 +323,7 @@ if (isset($_POST["Common"])) {
 						<a href="payment_success.php"><img src="icons_and_more/button_buy.png" width=130px></a>
 						</div>
 						</div>';
-					
+
 				}
 			}
 	}
@@ -386,25 +386,25 @@ if(isset($_POST["sellprofile"])){
 	}
 }
 
-//Proveedores	
-if(isset($_POST["get_sell_brand"])){	
-	$id_session = (int)pg_escape_string($_SESSION["uid"]);	
-	$prov_query = "SELECT * FROM providers WHERE prov_id IN(SELECT product_prov FROM products WHERE user_id = '$id_session')";	
-	$run_query = pg_query($con,$prov_query);	
-	echo "	
-			<div class='nav nav-pills nav-stacked'>	
-				<li class='active'><a href='#'><h5>Organizaciones</h5></a></li>	
-		";	
-	if(pg_num_rows($run_query) > 0){	
-		while($row = pg_fetch_array($run_query)){	
-			$bid = $row["prov_id"];	
-			$brand_name = $row["prov_title"];	
-				echo "	
-					<li><a href='#' class='selectBrand_sellprofile' bid='$bid'>$brand_name</a></li>	
-				 ";	 		
-			 }	 		
-			 echo "</div>";	 	
-		 }	 	
+//Proveedores
+if(isset($_POST["get_sell_brand"])){
+	$id_session = (int)pg_escape_string($_SESSION["uid"]);
+	$prov_query = "SELECT * FROM providers WHERE prov_id IN(SELECT product_prov FROM products WHERE user_id = '$id_session')";
+	$run_query = pg_query($con,$prov_query);
+	echo "
+			<div class='nav nav-pills nav-stacked'>
+				<li class='active'><a href='#'><h5>Organizaciones</h5></a></li>
+		";
+	if(pg_num_rows($run_query) > 0){
+		while($row = pg_fetch_array($run_query)){
+			$bid = $row["prov_id"];
+			$brand_name = $row["prov_title"];
+				echo "
+					<li><a href='#' class='selectBrand_sellprofile' bid='$bid'>$brand_name</a></li>
+				 ";
+			 }
+			 echo "</div>";
+		 }
 	 }
 
 
@@ -432,10 +432,10 @@ if(isset($_POST["get_product_sellprofile"])){
 			$pro_price = $row['product_price'];
 			$pro_desc = $row['product_desc'];
 			$pro_image = $row['product_image'];
-			$pro_user_id = $row['user_id'];	
-			$pro_stock = $row['stock'];	
-			$user_query = "SELECT first_name ||' '|| last_name as full_name from user_info where $pro_user_id = user_id";	
-			$run_user_query = pg_query($con,$user_query);	
+			$pro_user_id = $row['user_id'];
+			$pro_stock = $row['stock'];
+			$user_query = "SELECT first_name ||' '|| last_name as full_name from user_info where $pro_user_id = user_id";
+			$run_user_query = pg_query($con,$user_query);
 			$result = pg_fetch_array($run_user_query );
 			echo "
 			<div class='col-md-4'>
@@ -455,6 +455,7 @@ if(isset($_POST["get_product_sellprofile"])){
 									<p>$pro_desc</p>
 							</div>
 							<div class='panel-heading'>$  $pro_price
+
 							</div>
 						</div>
 					</div>
@@ -534,4 +535,3 @@ if(isset($_POST["get_seleted_Category_sellprofile"])  || isset($_POST["selectBra
 
 
 ?>
-

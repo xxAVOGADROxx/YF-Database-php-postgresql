@@ -17,10 +17,10 @@ if (isset($_POST["f_name"])) {
 
 if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empty($repassword) ||
 	empty($mobile) || empty($address1) || empty($address2)){
-		
+
 		echo "
 			<div class='alert alert-warning'>
-				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>PLease Fill all fields..!</b>
+				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Por favort llena todos los campos</b>
 			</div>
 		";
 		exit();
@@ -29,7 +29,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>this $f_name is not valid..!</b>
+				<b> $f_name No es valido!</b>
 			</div>
 		";
 		exit();
@@ -38,7 +38,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>this $l_name is not valid..!</b>
+				<b> $l_name no es valido!</b>
 			</div>
 		";
 		exit();
@@ -47,7 +47,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>this $email is not valid..!</b>
+				<b> $email no es valido!</b>
 			</div>
 		";
 		exit();
@@ -56,7 +56,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>Password is weak</b>
+				<b>La contraseña es muy débil]</b>
 			</div>
 		";
 		exit();
@@ -65,7 +65,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>Password is weak</b>
+				<b>La contraseña es muy débil</b>
 			</div>
 		";
 		exit();
@@ -74,7 +74,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>password is not same</b>
+				<b>La contraseña no es la misma</b>
 			</div>
 		";
 	}
@@ -82,7 +82,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>Mobile number $mobile is not valid</b>
+				<b>El número  $mobile  no es valido</b>
 			</div>
 		";
 		exit();
@@ -91,7 +91,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>Mobile number must be 10 digit</b>
+				<b>El número de celular debe tener 10 dígitos</b>
 			</div>
 		";
 		exit();
@@ -104,7 +104,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		echo "
 			<div class='alert alert-danger'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>Email Address is already available Try Another email address</b>
+				<b>El correo ya se ecuentra en uso en nuestro sistema, intentalo con uno nuevo</b>
 			</div>
 		";
 		exit();
@@ -112,13 +112,13 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		$password = md5($password);
 
 
-		$sql = "INSERT INTO user_info 
-		(first_name, last_name, email, 
-		password, mobile, address1, address2) 
-		VALUES ( '$f_name', '$l_name', '$email', 
+		$sql = "INSERT INTO user_info
+		(first_name, last_name, email,
+		password, mobile, address1, address2)
+		VALUES ( '$f_name', '$l_name', '$email',
 		'$password', '$mobile', '$address1', '$address2') RETURNING user_id";
 		$run_query = pg_query($con,$sql);
-		$insert_row = pg_fetch_row($run_query);		
+		$insert_row = pg_fetch_row($run_query);
 		$_SESSION["uid"] = $insert_row[0];
 
 		//Esta funcion no tiene actualmente analogo en Postgress
@@ -133,61 +133,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		}
 	}
 	}
-	
+
 }
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
