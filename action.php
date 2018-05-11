@@ -317,6 +317,7 @@ if (isset($_POST["Common"])) {
 					//Here i am adding the functionality to perform the order
 					echo '<div class="row">
 						<div class="col-md-8">
+						<h7> <blockquote> Si modificas la cantidad asegúrate de dar click en Actualizar! </blockquote></h7>
 						</div>
 						<div class="col-md-2">
 						<a href="payment_success.php"><img src="icons_and_more/button_buy.png" width=130px></a>
