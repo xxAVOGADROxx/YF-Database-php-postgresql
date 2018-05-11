@@ -59,7 +59,7 @@ create table products (
 	product_cat integer,
 	product_prov integer,
 	product_title varchar not null,
-	product_price numeric(4,2) not null,
+	product_price numeric(7,2) not null,
 	product_desc varchar(100) not null,
 	product_image varchar not null,
 	product_keywords varchar not null
@@ -125,4 +125,24 @@ $$ language plpgsql;
 
 create trigger stock after insert on orders
 for each row execute procedure verf_stock();
+--Foreign key
+--productos listo
+alter table products
+add constraint fk_product1
+foreign key(user_id) references user_info(user_id);
 
+alter table products
+add constraint fk_product2
+foreign key(product_cat) references categories(cat_id);
+
+alter table products
+add constraint fk_product3
+foreign key (product_prov) references providers(prov_id);
+--orders listo
+alter table orders
+add constraint fk_product1
+foreign key(user_id) references user_info(user_id);
+
+alter table orders
+add constraint fk_product2
+foreign key(product_id) references products(product_id);

@@ -52,7 +52,7 @@ if(isset($_POST["title_prod"])){
     		";
     		exit();
     	}
-      if(strlen($c_price)>2){
+      if(strlen($c_price)>6){
     		echo "
     			<div class='alert alert-warning'>
     				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
