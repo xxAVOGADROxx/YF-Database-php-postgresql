@@ -193,6 +193,8 @@ if(!isset($_SESSION["uid"])){
 			<hr>
 			<a href="add_product_form.php"><img src="icons_and_more/subir_prod.png" width=70px></a>
 			<hr>
+			<a href="del_product.php"><img src="icons_and_more/borrar_prod.png" width=70px></a>
+			<hr>
 			</center>
 		</div>
 	</div>

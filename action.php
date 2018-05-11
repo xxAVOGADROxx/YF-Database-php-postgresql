@@ -275,7 +275,6 @@ if (isset($_POST["Common"])) {
 	}
 	if (isset($_POST["checkOutDetails"])) {
 		if (pg_num_rows($query) > 0) {
-			//display user cart item with "Ready to checkout" button if user is not login
 			echo "<form method='post' action='login_form.php'>";
 				$n=0;
 				while ($row=pg_fetch_array($query)) {
@@ -379,7 +378,7 @@ if(isset($_POST["sellprofile"])){
 			$cid = $row["cat_id"];
 			$cat_name = $row["cat_title"];
 			echo "
-					<li><a href='#' class='category' cid='$cid'>$cat_name</a></li>
+					<li><a href='#' class='sell_category' cid='$cid'>$cat_name</a></li>
 			";
 		}
 		echo "</div>";
@@ -455,9 +454,6 @@ if(isset($_POST["get_product_sellprofile"])){
 									<p>$pro_desc</p>
 							</div>
 							<div class='panel-heading'>$  $pro_price
-								<button pid='$pro_id' style='float:none;' id='product' class='btn btn-danger btn-xs'>Añadir</button>
-								<button pid='$pro_id' style='float:none;' id='product_update' class='btn btn-danger btn-xs'>Actualizar</button>	
-								<button pid='$pro_id' style='float:right;' id='product_delete' class='btn btn-danger btn-xs'>Eliminar</button>
 							</div>
 						</div>
 					</div>
@@ -528,13 +524,13 @@ if(isset($_POST["get_seleted_Category_sellprofile"])  || isset($_POST["selectBra
 									<p>$pro_desc</p>
 								</div>
 								<div class='panel-heading'>$  $pro_price
-									<button pid='$pro_id' style='float:right;' id='product' class='btn btn-danger btn-xs'>Añadir</button>
 								</div>
 							</div>
 				</div>
 			";
 		}
 }
+
 
 ?>
 
