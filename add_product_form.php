@@ -46,7 +46,7 @@ if (isset($_POST["login_user_with_product"])) {
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-2"></div>
-			<div class="col-md-8" id="signup_msg">
+			<div class="col-md-8" id="msg_addproduct">
 				<!--Alert from signup form-->
 			</div>
 			<div class="col-md-2"></div>
@@ -92,12 +92,12 @@ if (isset($_POST["login_user_with_product"])) {
               <label for="imageprod">Image</label>
 							<input type="imageprod" class="form-control" name="image_prod" id="image_prod" placeholder= "" required/>
 
-							<form action="upload.php" method="post" enctype="multipart/form-data">
+<!--							<form action="upload.php" method="post" enctype="multipart/form-data">
     							Select image to upload:
     							<input type="file" name="fileToUpload" id="fileToUpload">
     							<input type="submit" value="Upload Image" name="submit">
 							</form>
-
+-->
               <p><br/></p>
               <a href="sellprofile.php" class="btn btn-success" style="float:left">Cancel</a><input type="submit" class="btn btn-success" style="float:right;" Value="Add">
 						</form>
