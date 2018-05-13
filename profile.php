@@ -110,6 +110,8 @@ if(!isset($_SESSION["uid"])){
 						<li class="divider"></li>
 						<li><a href="customer_order.php" style="text-decoration:none; color:white;"> Ordenes </a></li>
 						<li class="divider"></li>
+						<li><a href="sells.php" style="text-decoration:none; color:white;"> Mis ventas </a></li>
+						<li class="divider"></li>
 						<li><a href="logout.php" style="text-decoration:none; color:white;"> Salir</a></li>
 					</ul>
 				</li>
