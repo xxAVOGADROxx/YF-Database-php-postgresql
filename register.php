@@ -38,7 +38,25 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		";
 		exit();
 	}
-	if(!preg_match($name,$l_name)){
+	if(!preg_match($name,$l_name1)){
+		echo "
+			<div class='alert alert-warning'>
+				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+				<b> $l_name no es valido!</b>
+			</div>
+		";
+		exit();
+	}
+    if(!preg_match($name,$l_name2)){
+		echo "
+			<div class='alert alert-warning'>
+				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+				<b> $l_name no es valido!</b>
+			</div>
+		";
+		exit();
+	}
+    if(!preg_match($name,$dependence)){
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
@@ -98,11 +116,11 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		";
 		exit();
 	}
-	if(!(strlen($mobile) == 10)){
+	if((strlen($mobile) > 10){
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b>El número de celular debe tener 10 dígitos</b>
+				<b>El teléfono de contacto es superior a 10 dígitos</b>
 			</div>
 		";
 		exit();
@@ -126,8 +144,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		$sql = "INSERT INTO user_info
 		(first_name, last_name, email,
 		password, mobile, address1, address2)
-		VALUES ( '$f_name', '$l_name', '$email',
-		'$password', '$mobile', '$address1', '$address2') RETURNING user_id";
+		VALUES ( '$f_name','$l_name1','$l_name2','$dependence','$password','$mobile', '$mobile') RETURNING user_id";
 		$run_query = pg_query($con,$sql);
 		$insert_row = pg_fetch_row($run_query);
 		$_SESSION["uid"] = $insert_row[0];
