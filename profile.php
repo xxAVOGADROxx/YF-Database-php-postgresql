@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if(!isset($_SESSION["uid"])){
 	header("location:index.php");
@@ -9,7 +8,7 @@ if(!isset($_SESSION["uid"])){
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Yachay Market</title>
+		<title>REQUERIMIENTOS DGAC </title>
 		<link rel="stylesheet" href="css/bootstrap.min.css"/>
 		<script src="js/jquery2.js"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -54,7 +53,13 @@ if(!isset($_SESSION["uid"])){
 				background-color: #C0392B;
 				border-color: #FDFEFE;
 			}
-
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+		
 
 		</style>
 	</head>
@@ -68,52 +73,18 @@ if(!isset($_SESSION["uid"])){
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="#" class="navbar-brand">Yachay Market</a>
+                      <a href="#" class="navbar-brand">Sistema de Requerimientos - Área Tecnológica</a>
 			</div>
 		<div class="collapse navbar-collapse" id="collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span> Productos</a></li>
-				<li><a href="sellprofile.php"><span class="glyphicon glyphicon-modal-window"></span> Vender!</a></li>
-				<li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search" placeholder="Buscar productos"></li>
-				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn">Buscar</button></li>
-			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#" id="cart_container" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart<span class="badge">0</span></a>
-					<div class="dropdown-menu" style="width:400px;">
-						<div class="panel panel-success">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-md-3 col-xs-3">N°.</div>
-									<div class="col-md-3 col-xs-3">Imagen Producto</div>
-									<div class="col-md-3 col-xs-3">Nombre Producto</div>
-									<div class="col-md-3 col-xs-3">Precio $.</div>
-								</div>
-							</div>
-							<div class="panel-body">
-								<div id="cart_product">
-								<!--<div class="row">
-									<div class="col-md-3">Sl.No</div>
-									<div class="col-md-3">Product Image</div>
-									<div class="col-md-3">Product Name</div>
-									<div class="col-md-3">Price in $.</div>
-								</div>-->
-								</div>
-							</div>
-							<div class="panel-footer"></div>
-						</div>
-					</div>
-				</li>
-				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><?php echo "Hola, ".$_SESSION["name"]; ?></a>
+				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><?php echo " Cuenta actual: ".$_SESSION["name"]; ?></a>
 					<ul class="dropdown-menu">
-						<li><a href="cart.php" style="text-decoration:none; color:white;"><span class="glyphicon glyphicon-shopping-cart"> Cart</a></li>
+						<li><a href="sells.php" style="text-decoration:none; color:white;">Requerimientos Pendientes</a></li>
 						<li class="divider"></li>
-						<li><a href="customer_order.php" style="text-decoration:none; color:white;"> Ordenes </a></li>
-						<li class="divider"></li>
-						<li><a href="sells.php" style="text-decoration:none; color:white;"> Mis ventas </a></li>
-						<li class="divider"></li>
-						<li><a href="logout.php" style="text-decoration:none; color:white;"> Salir</a></li>
-					</ul>
+						<li><a href="logout.php" style="text-decoration:none; color:white;">Requerimientos Contestados</a></li>
+                        <li class="divider"></li>
+                        <li><a href="logout.php" style="text-decoration:none; color:white;">Cerrar Sesión</a></li>
+                    </ul>
 				</li>
 
 			</ul>
@@ -123,65 +94,30 @@ if(!isset($_SESSION["uid"])){
 	<p><br/></p>
 	<p><br/></p>
 	<p><br/></p>
+         <img src="images_web_page/logo_header.png" alt="Girl in a jacket" style="width:300px;height:100px;" class="center">
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-2">
-				<div id="get_category">
-				</div>
-				<!--<div class="nav nav-pills nav-stacked">
-					<li class="active"><a href="#"><h4>Categories</h4></a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Categories</a></li>
-				</div> -->
-				<div id="get_brand">
-				</div>
-				<!--<div class="nav nav-pills nav-stacked">
-					<li class="active"><a href="#"><h4>Brand</h4></a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Categories</a></li>
-				</div> -->
-			</div>
-			<div class="col-md-8">
-				<div class="row">
-					<div class="col-md-12 col-xs-12" id="product_msg">
-					</div>
-				</div>
-				<div class="panel panel-info" id="scroll">
-					<div class="panel-heading">Products</div>
-					<div class="panel-body">
-						<div id="get_product">
-							<!--Here we get product jquery Ajax Request-->
-						</div>
-						<!--<div class="col-md-4">
-							<div class="panel panel-info">
-								<div class="panel-heading">Samsung Galaxy</div>
-								<div class="panel-body">
-									<img src="product_images/images.JPG"/>
-								</div>
-								<div class="panel-heading">$.500.00
-									<button style="float:right;" class="btn btn-danger btn-xs">AddToCart</button>
-								</div>
+     <h3 align="center" class="font-weight-bold">Bienvenido al Sistema de Registro de Requerimientos del Área Tecnológica</h3>
+       <p><br/></p>
+            <p align="center" style="color:white; font-size:18px"><strong>Si realizará varios requerimientos, asegurese de llenar un campo por cada requerimiento. Puede añadir más campos usando el botón "Añadir Requerimiento".  </p> 
+              <div class="row">
+                        <div class="col-md-12 col-md-offset-5">
+                            <label for="requerimiento">REQUERIMIENTOS:</label>
+                        </div>
+              </div>
+						<div class="row">
+                                <div class="col-md-12">
+								<input type="text" id="requerimiento" name="requerimiento"class="form-control" placeholder="Ingrese aquí su requerimiento.">
 							</div>
-						</div> -->
+						</div>
+                        <p><br/></p>
+                        <input type="button" value="Añadir Requerimiento" id="button" />
+						<p><br/></p>
+						<div class="row">
+							<div class="col-md-12 col-md-offset-5">
+								<input style="width:10%;" value="Registrar" type="submit" name="signup_button"class="btn btn-success btn-lg">
+							</div>
+						</div>
 					</div>
-					<div class="panel-footer">&copy; 2018</div>
-				</div>
-			</div>
-			<div class="col-md-1"></div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<center>
-					<ul class="pagination" id="pageno">
-						<li><a href="#">1</a></li>
-					</ul>
-				</center>
-			</div>
 		</div>
 	</div>
 </body>

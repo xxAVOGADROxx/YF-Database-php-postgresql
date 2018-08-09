@@ -8,7 +8,7 @@ if(isset($_SESSION["uid"])){
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Yachay Market</title>
+		<title>REQUERIMIENTOS DGAC</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css"/>
 		<script src="js/jquery2.js"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -49,6 +49,12 @@ if(isset($_SESSION["uid"])){
 				background-color: #C0392B;
 				border-color: #FDFEFE;
 			}
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
 		
 		</style>
 	</head>
@@ -65,48 +71,11 @@ if(isset($_SESSION["uid"])){
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="#" class="navbar-brand">Yachay Market</a>
+				<a href="#" class="navbar-brand">Sistema de Requerimientos - Área de Tecnología</a>
 			</div>
 		<div class="collapse navbar-collapse" id="collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>   Inicio</a></li>
-				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>  Productos</a></li>
-				<li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search" placeholder="Buscar productos"></li>
-				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn">Buscar</button></li>
-			</ul>
-<!--		<form class="navbar-form navbar-left">
-		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Buscar productos" id="search">
-		        </div>
-		        <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
-		 </form>-->
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>  Ir al carrito  <span class="badge">0</span></a>
-					<div class="dropdown-menu" style="width:400px;">
-						<div class="panel panel-success">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-md-3">N°</div>
-									<div class="col-md-3">Imagen producto</div>
-									<div class="col-md-3">Nombre producto</div>
-									<div class="col-md-3">Precio en $.</div>
-								</div>
-							</div>
-							<div class="panel-body">
-								<div id="cart_product">
-								<!--<div class="row">
-									<div class="col-md-3">Sl.No</div>
-									<div class="col-md-3">Product Image</div>
-									<div class="col-md-3">Product Name</div>
-									<div class="col-md-3">Price in $.</div>
-								</div>-->
-								</div>
-							</div>
-							<div class="panel-footer"></div>
-						</div>
-					</div>
-				</li>
-				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>  Entrar</a>
+				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>  Entrar al Sistema </a>
 					<ul class="dropdown-menu">
 						<div style="width:350px;">
 							<div class="panel panel-primary">
@@ -134,57 +103,15 @@ if(isset($_SESSION["uid"])){
 	<p><br/></p>
 	<p><br/></p>
 	<p><br/></p>
+         <img src="images_web_page/logo_header.png" alt="Girl in a jacket" style="width:300px;height:100px;" class="center"> 
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-2 col-xs-12">
-				<div id="get_category">
-				</div>
-				<!--<div class="nav nav-pills nav-stacked">
-					<li class="active"><a href="#"><h4>Categories</h4></a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Categories</a></li>
-				</div> -->
-				<div id="get_brand">
-				</div>
-				<!--<div class="nav nav-pills nav-stacked">
-					<li class="active"><a href="#"><h4>Brand</h4></a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Categories</a></li>
-				</div> -->
-			</div>
-			<div class="col-md-8 col-xs-12">
-				<div class="row">
-					<div class="col-md-12 col-xs-12" id="product_msg">
-					</div>
-				</div>
-				<div class="panel panel-info">
-					<div class="panel-heading">Lista de Productos</div>
-					<div class="panel-body">
-						<div id="get_product">
-							<!--Here we get product jquery Ajax Request-->
-						</div>
-						<!--<div class="col-md-4">
-							<div class="panel panel-info">
-								<div class="panel-heading">Samsung Galaxy</div>
-								<div class="panel-body">
-									<img src="product_images/images.JPG"/>
-								</div>
-								<div class="panel-heading">$.500.00
-									<button style="float:right;" class="btn btn-danger btn-xs">AddToCart</button>
-								</div>
-							</div>
-						</div> -->
-					</div>
-					<div class="panel-footer">&copy; 2018</div>
-				</div>
-			</div>
-			<div class="col-md-1"></div>
-		</div>
+       <h3 align="center" class="font-weight-bold">Bienvenido al Sistema de Registro de Requerimientos del Área Tecnológica</h3>
+       <p><br/></p>
+            <p align="center" style="color:white; font-size:18px"><strong>Sistema de ayuda soporte al usuario en Tecnología DGAC, este sistema sirve para que usted reporte cualquier necesidad tecnológica, hardware o software. <br>Este sistema no se encuentra asociado a ninguna cuenta de la institución. Por lo cual si es la primera vez que ingresa a esta página debe registrarse.</p>  
+       <ul>
+            <li style="font-size:30px">Para ingresar al sistema debe crear una cuenta de usuario en el botón "Entrar al Sistema" en la parte superior derecha de la página web y seleccionar "Crear Cuenta". Debe registrarse con su correo institucional (e.j. nombre.apellido@aviacioncivil.gov.ec).</li>
+            <li  style="font-size:30px">Si usted ha registrado una cuenta previamente debe ingresar con sus credenciales: correo electrónico y contraseña registradas. Para ingresar sus ceredenciales debe ingresar en el botón de la parte superior de la página web "Entrar al Sistema". </li>
+       </ul> 
 	</div>
 </body>
 </html>

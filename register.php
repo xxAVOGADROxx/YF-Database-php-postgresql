@@ -4,16 +4,20 @@ include "db.php";
 if (isset($_POST["f_name"])) {
 
 	$f_name = $_POST["f_name"];
-	$l_name = $_POST["l_name"];
-	$email = $_POST['email'];
+	$l_name1 = $_POST["l_name1"];
+    $l_name2 = $_POST["l_name2"];
+    $dependence = $_POST['dependence'];
 	$password = $_POST['password'];
 	$repassword = $_POST['repassword'];
 	$mobile = $_POST['mobile'];
-	$address1 = $_POST['address1'];
-	$address2 = $_POST['address2'];
 	$name = "/^[a-zA-Z ]+$/";
-	$emailValidation = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z]{2,4})$/";
-	$number = "/^[0-9]+$/";
+	//$emailValidation = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z]{2,4})$/";
+    $allowed = [
+        'aviacioncivil.gob.ec',
+    ];
+    $number = "/^[0-9]+$/";
+
+
 
 if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empty($repassword) ||
 	empty($mobile) || empty($address1) || empty($address2)){
@@ -43,7 +47,13 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		";
 		exit();
 	}
-	if(!preg_match($emailValidation,$email)){
+	if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+        //Separate the string by the '@'characters
+        $parts = explode('@', $email);
+        //Remove and return the last part
+        $domain = array_pop($parts);
+        //Check the domain in our list
+        if(!in_array($domain, $allowed){
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
@@ -51,6 +61,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 			</div>
 		";
 		exit();
+        }
 	}
 	if(strlen($password) < 9 ){
 		echo "
