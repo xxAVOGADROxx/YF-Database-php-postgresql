@@ -6,6 +6,29 @@ $(document).ready(function(){
 	sell_brand();
 	sell_product();
 
+//code  (down) to use in the DGAC requirements
+$("#add_product").on("submit",function(event){
+	event.preventDefault();
+	$(".overlay").show();
+	$.ajax({
+		url	:	"add_product.php", // se modifica el archivo add_product -> add_order
+		method:	"POST",
+		data	:$("#add_product").serialize(),
+		success	:function(data){
+			$(".overlay").hide();
+			if(data == "add_success"){
+				window.location.href = "profile.php";
+			}else{
+				$("#msg_addproduct").html(data);
+
+			}
+		}
+	})
+})
+
+//code (up) to use in the DGAC requirements
+
+
 	//cat() is a funtion fetching category record from database whenever page is load
 	function cat(){
 		$.ajax({
@@ -463,25 +486,6 @@ $("#search_btn_sellprofile").click(function(){
 //end
 
 
-//add_product_function begin
-$("#add_product").on("submit",function(event){
-	event.preventDefault();
-	$(".overlay").show();
-	$.ajax({
-		url	:	"add_product.php",
-		method:	"POST",
-		data	:$("#add_product").serialize(),
-		success	:function(data){
-			$(".overlay").hide();
-			if(data == "add_success"){
-				window.location.href = "sellprofile.php";
-			}else{
-				$("#msg_addproduct").html(data);
-
-			}
-		}
-	})
-})
 //Get User Information in the homepage
 $("#signup_form_home").on("submit",function(event){
 	event.preventDefault();

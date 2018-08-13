@@ -7,24 +7,21 @@ if (isset($_POST["f_name"])) {
 	$l_name1 = $_POST["l_name1"];
     $l_name2 = $_POST["l_name2"];
     $dependence = $_POST['dependence'];
+    $email = $_POST['email'];
 	$password = $_POST['password'];
 	$repassword = $_POST['repassword'];
 	$mobile = $_POST['mobile'];
 	$name = "/^[a-zA-Z ]+$/";
-	//$emailValidation = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z]{2,4})$/";
-    $allowed = [
-        'aviacioncivil.gob.ec',
-    ];
+	$emailValidation = "/^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(aviacioncivil.gob)\.ec$/";
     $number = "/^[0-9]+$/";
 
 
 
-if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empty($repassword) ||
-	empty($mobile) || empty($address1) || empty($address2)){
+    if(empty($f_name) || empty($l_name1) || empty($l_name2)||empty($dependence) || empty($email) || empty($password) || empty($repassword) || empty($mobile) ){
 
 		echo "
 			<div class='alert alert-warning'>
-				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Por favort llena todos los campos</b>
+				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><b>Por favor llena todos los campos</b>
 			</div>
 		";
 		exit();
@@ -42,7 +39,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b> $l_name no es valido!</b>
+				<b> $l_name1 no es valido!</b>
 			</div>
 		";
 		exit();
@@ -51,7 +48,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b> $l_name no es valido!</b>
+				<b> $l_name2 no es valido!</b>
 			</div>
 		";
 		exit();
@@ -60,18 +57,12 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-				<b> $l_name no es valido!</b>
+				<b> $dependence no es valido!</b>
 			</div>
 		";
 		exit();
 	}
-	if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-        //Separate the string by the '@'characters
-        $parts = explode('@', $email);
-        //Remove and return the last part
-        $domain = array_pop($parts);
-        //Check the domain in our list
-        if(!in_array($domain, $allowed){
+	if(!preg_match($emailValidation,$email)){
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
@@ -79,7 +70,6 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 			</div>
 		";
 		exit();
-        }
 	}
 	if(strlen($password) < 9 ){
 		echo "
@@ -116,7 +106,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		";
 		exit();
 	}
-	if((strlen($mobile) > 10){
+	if(strlen($mobile) > 10){
 		echo "
 			<div class='alert alert-warning'>
 				<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
@@ -142,11 +132,12 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 
 
 		$sql = "INSERT INTO user_info
-		(first_name, last_name, email,
-		password, mobile, address1, address2)
-		VALUES ( '$f_name','$l_name1','$l_name2','$dependence','$password','$mobile', '$mobile') RETURNING user_id";
+		(first_name, last_name1, last_name2, dependence, email,
+		password, contact_number)
+		VALUES ( '$f_name','$l_name1','$l_name2','$dependence', '$email','$password','$mobile') RETURNING user_id";
 		$run_query = pg_query($con,$sql);
 		$insert_row = pg_fetch_row($run_query);
+
 		$_SESSION["uid"] = $insert_row[0];
 
 		//Esta funcion no tiene actualmente analogo en Postgress
@@ -159,9 +150,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 			echo "register_success";
 			exit();
 		}
-	}
-	}
-
+    }
+    }
 }
-
 ?>

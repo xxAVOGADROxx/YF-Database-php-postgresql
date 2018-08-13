@@ -18,7 +18,7 @@ if(!isset($_SESSION["uid"])){
 				#search{width:80%;}
 				#search_btn{width:30%;float:right;margin-top:-32px;margin-right:10px;}
 			}
-			
+
 			.btn1 {
 				display: inline-block;
 				margin-bottom: 0;
@@ -59,7 +59,7 @@ if(!isset($_SESSION["uid"])){
                 margin-right: auto;
                 width: 50%;
             }
-		
+
 
 		</style>
 	</head>
@@ -94,29 +94,37 @@ if(!isset($_SESSION["uid"])){
 	<p><br/></p>
 	<p><br/></p>
 	<p><br/></p>
-         <img src="images_web_page/logo_header.png" alt="Girl in a jacket" style="width:300px;height:100px;" class="center">
+         <img src="images_web_page/logo_header.png" alt="DGAC_logo" style="width:300px;height:100px;" class="center">
 	<div class="container-fluid">
      <h3 align="center" class="font-weight-bold">Bienvenido al Sistema de Registro de Requerimientos del Área Tecnológica</h3>
        <p><br/></p>
-            <p align="center" style="color:white; font-size:18px"><strong>Si realizará varios requerimientos, asegurese de llenar un campo por cada requerimiento. Puede añadir más campos usando el botón "Añadir Requerimiento".  </p> 
+            <p align="center" style="color:white; font-size:18px"><strong>Si realizará varios requerimientos, asegurese de llenar un campo por cada requerimiento. Puede añadir más campos usando el botón "Añadir Requerimiento".  </p>
               <div class="row">
                         <div class="col-md-12 col-md-offset-5">
                             <label for="requerimiento">REQUERIMIENTOS:</label>
                         </div>
               </div>
-						<div class="row">
-                                <div class="col-md-12">
-								<input type="text" id="requerimiento" name="requerimiento"class="form-control" placeholder="Ingrese aquí su requerimiento.">
-							</div>
-						</div>
-                        <p><br/></p>
-                        <input type="button" value="Añadir Requerimiento" id="button" />
-						<p><br/></p>
-						<div class="row">
-							<div class="col-md-12 col-md-offset-5">
-								<input style="width:10%;" value="Registrar" type="submit" name="signup_button"class="btn btn-success btn-lg">
-							</div>
-						</div>
+            <p><br/></p>
+
+	            <form onsubmit="return false" id="add_product" enctype="multipart/form-data">
+              <label for="requirement"> Escriba aquí su primer requerimiento </label>
+							<input type="requirement" class="form-control" name= "title_requirement" id="title_req1" >
+
+							<label for="requirement"> Escriba aquí su segundo requerimiento </label>
+							<input type="requirement" class="form-control" name= "title_requirement" id="title_req2" >
+
+							<label for="requirement"> Escriba aquí su tercer requerimiento </label>
+							<input type="requirement" class="form-control" name= "title_requirement" id="title_req3" >
+
+							<label for="requirement"> Escriba aquí su cuarto requerimiento </label>
+							<input type="requirement" class="form-control" name= "title_requirement" id="title_req4" >
+
+							<label for="requirement"> Escriba aquí su quinto requerimiento </label>
+							<input type="requirement" class="form-control" name= "title_requirement" id="title_req5" >
+
+							<p><br/></p>
+							<a href="profile.php" class="btn btn-success" style="float:left">Cancel</a><input type="submit" class="btn btn-success" style="float:right;" Value="Enviar">
+            </form>
 					</div>
 		</div>
 	</div>
