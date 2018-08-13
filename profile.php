@@ -120,10 +120,11 @@ if(!isset($_SESSION["uid"])){
 							<input type="requirement" class="form-control" name= "title_requirement" id="title_req4" >
 
 							<label for="requirement"> Escriba aquí su quinto requerimiento </label>
-							<input type="requirement" class="form-control" name= "title_requirement" id="title_req5" >
+							<input type="requirement" class="form-control" name= "title_requirement" id="title_req5">
 
 							<p><br/></p>
-							<a href="profile.php" class="btn btn-success" style="float:left">Cancel</a><input type="submit" class="btn btn-success" style="float:right;" Value="Enviar">
+							<a href="profile.php" class="btn btn-success" style="float:left">Cancel</a>
+							<input type="submit" class="btn btn-success" style="float:right;" Value="Enviar">
             </form>
 					</div>
 		</div>
