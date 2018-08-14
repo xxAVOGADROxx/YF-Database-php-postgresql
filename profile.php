@@ -106,25 +106,25 @@ if(!isset($_SESSION["uid"])){
               </div>
             <p><br/></p>
 
-	            <form onsubmit="return false" id="add_product" enctype="multipart/form-data">
-              <label for="requirement"> Escriba aquí su primer requerimiento </label>
-							<input type="requirement" class="form-control" name= "title_requirement" id="title_req1" >
+	            <form onsubmit="return false" id="add_product" enctype="multipart/fom-data">
+            		<label for="title_req1"> Escriba aquí su primer requerimiento </label>
+								<input type="title_req1" class="form-control" name= "title_req1" id="title_req1" >
 
-							<label for="requirement"> Escriba aquí su segundo requerimiento </label>
-							<input type="requirement" class="form-control" name= "title_requirement" id="title_req2" >
+								<label for="title_req2"> Escriba aquí su segundo requerimiento </label>
+								<input type="title_req2" class="form-control" name= "title_req2" id="title_req2" >
 
-							<label for="requirement"> Escriba aquí su tercer requerimiento </label>
-							<input type="requirement" class="form-control" name= "title_requirement" id="title_req3" >
+								<label for="title_req3"> Escriba aquí su tercer requerimiento </label>
+								<input type="title_req3" class="form-control" name= "title_req3" id="title_req3" >
 
-							<label for="requirement"> Escriba aquí su cuarto requerimiento </label>
-							<input type="requirement" class="form-control" name= "title_requirement" id="title_req4" >
+								<label for="title_req4"> Escriba aquí su cuarto requerimiento </label>
+								<input type="title_req4" class="form-control" name= "title_req4" id="title_req4" >
 
-							<label for="requirement"> Escriba aquí su quinto requerimiento </label>
-							<input type="requirement" class="form-control" name= "title_requirement" id="title_req5">
+								<label for="title_req5"> Escriba aquí su quinto requerimiento </label>
+								<input type="title_req5" class="form-control" name= "title_req5" id="title_req5">
 
-							<p><br/></p>
-							<a href="profile.php" class="btn btn-success" style="float:left">Cancel</a>
-							<input type="submit" class="btn btn-success" style="float:right;" Value="Enviar">
+								<p><br/></p>
+								<a href="profile.php" class="btn btn-success" style="float:left">Cancel</a>
+								<input type="submit" class="btn btn-success"  name="add_product" style="float:right;" Value="Enviar">
             </form>
 					</div>
 		</div>

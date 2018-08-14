@@ -5,9 +5,9 @@ if (isset($_POST["f_name"])) {
 
 	$f_name = $_POST["f_name"];
 	$l_name1 = $_POST["l_name1"];
-    $l_name2 = $_POST["l_name2"];
-    $dependence = $_POST['dependence'];
-    $email = $_POST['email'];
+  $l_name2 = $_POST["l_name2"];
+  $dependence = $_POST['dependence'];
+  $email = $_POST['email'];
 	$password = $_POST['password'];
 	$repassword = $_POST['repassword'];
 	$mobile = $_POST['mobile'];

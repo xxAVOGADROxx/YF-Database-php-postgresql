@@ -85,8 +85,8 @@ if (isset($_GET["register"])) {
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-                                <label for="mobile">Número telefónico de contacto</label>
-								<input type="text" id="mobile" name="mobile"class="form-control">
+                    <label for="mobile">Número telefónico de contacto</label>
+								     <input type="text" id="mobile" name="mobile"class="form-control">
 							</div>
 						</div>
 						<p><br/></p>
